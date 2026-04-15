@@ -417,8 +417,6 @@ body.light-theme::before {
 
 .hero-content {
     max-width: 900px;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .hero h1 {

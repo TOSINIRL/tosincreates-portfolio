@@ -44,7 +44,7 @@
 
 
     // Site Reveal (Instant)
-    gsap.set(['header', 'main'], { opacity: 1, y: 0 });
+    gsap.set(['header', 'main', '.hero-content'], { opacity: 1, y: 0 });
     gsap.set('.watermark-text', { opacity: 1, y: 0 });
 
     // 1. Load YouTube IFrame API
