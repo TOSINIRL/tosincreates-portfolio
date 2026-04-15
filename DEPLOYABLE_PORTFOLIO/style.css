@@ -189,6 +189,42 @@ body::before {
     width: 20px;
 }
 
+/* Header Status (Location & Time) */
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 25px;
+    padding: 6px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.status-loc {
+    color: var(--accent-red);
+}
+
+.status-sep {
+    opacity: 0.3;
+}
+
+.status-time {
+    color: #fff;
+    min-width: 75px;
+}
+
+@media (max-width: 850px) {
+    .header-status {
+        display: none;
+    }
+}
+
 .profile-pill {
     background: var(--pill-bg);
     display: flex;
