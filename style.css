@@ -332,8 +332,8 @@ body.light-theme::before {
 /* --- About Section --- */
 
 .about {
-    padding: 240px 0 6rem 0; /* Pushed down significantly (approx double the previous) */
-    margin-top: 0; 
+    padding: 8rem 0;
+    margin-top: -4rem; /* Tucked slightly into hero area */
 }
 
 /* Main card */
