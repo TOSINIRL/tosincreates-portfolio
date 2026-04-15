@@ -41,6 +41,37 @@
         initTheme();
     }
 
+    // 0.5 System Greeting Logic
+    const showSystemGreeting = () => {
+        const greeting = document.getElementById('system-greeting');
+        if (!greeting) return;
+
+        greeting.style.display = 'flex';
+        const gTl = gsap.timeline({
+            onComplete: () => {
+                gsap.to(greeting, {
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 1.5,
+                    onComplete: () => greeting.style.display = 'none'
+                });
+            }
+        });
+
+        gTl.to('.greeting-content', {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "expo.out"
+        })
+        .from('.greeting-text', {
+            letterSpacing: "20px",
+            filter: "blur(10px)",
+            duration: 1.2,
+            ease: "power4.out"
+        }, "-=0.5");
+    };
+
     // 0. Mob Psycho Preloader & Site Reveal
     const initPreloader = () => {
         const loadCount = document.getElementById('load-count');
@@ -56,59 +87,27 @@
             preloader.style.display = 'none';
             gsap.set(['header', 'main'], { opacity: 1, y: 0 });
             gsap.set('.watermark-text', { opacity: 1, y: 0 });
+            // Show greeting anyway for the "Welcome" feel
+            setTimeout(showSystemGreeting, 500);
             return;
         }
 
-        const showSystemGreeting = () => {
-            const greeting = document.getElementById('system-greeting');
-            if (!greeting) return;
-
-            greeting.style.display = 'flex';
-            const gTl = gsap.timeline({
-                onComplete: () => {
-                    gsap.to(greeting, {
-                        opacity: 0,
-                        duration: 0.8,
-                        delay: 1.5,
-                        onComplete: () => greeting.style.display = 'none'
-                    });
-                }
-            });
-
-            gTl.to('.greeting-content', {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: "expo.out"
-            })
-            .from('.greeting-text', {
-                letterSpacing: "20px",
-                filter: "blur(10px)",
-                duration: 1.2,
-                ease: "power4.out"
-            }, "-=0.5");
-        };
-
         const tl = gsap.timeline();
-        let progress = { value: 0 };
+        let progressVal = { value: 0 };
 
         // Animate counter
-        tl.to(progress, {
+        tl.to(progressVal, {
             value: 100,
-            duration: 2.5,
-            ease: "power2.inOut",
-            onUpdate: () => {
-                const rounded = Math.floor(progress.value);
-                if (loadCount) loadCount.textContent = rounded < 10 ? `0${rounded}` : rounded;
+            duration: 3,
+            ease: "none",
+            onUpdate: function() {
+                const rounded = Math.round(progressVal.value);
+                if (loadCount) loadCount.textContent = rounded.toString().padStart(2, '0');
+                if (aura) gsap.set(aura, { opacity: (rounded/100) * 0.3, scale: 0.5 + (rounded/100) });
                 
-                // Intensity effects as we approach 100%
-                if (rounded > 60 && aura) {
-                    gsap.set(aura, { opacity: (rounded - 60) / 40 });
-                    if (counterWrap) {
-                        gsap.set(counterWrap, { 
-                            x: gsap.utils.random(-2, 2), 
-                            y: gsap.utils.random(-2, 2) 
-                        });
+                if (rounded > 50 && rounded < 90) {
+                    if (status) {
+                        status.textContent = "UPLINK_STABILIZING...";
                     }
                 }
                 
