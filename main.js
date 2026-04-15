@@ -41,122 +41,11 @@
         initTheme();
     }
 
-    // 0.5 System Greeting Logic
-    const showSystemGreeting = () => {
-        const greeting = document.getElementById('system-greeting');
-        if (!greeting) return;
 
-        greeting.style.display = 'flex';
-        const gTl = gsap.timeline({
-            onComplete: () => {
-                gsap.to(greeting, {
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: 1.5,
-                    onComplete: () => greeting.style.display = 'none'
-                });
-            }
-        });
 
-        gTl.to('.greeting-content', {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "expo.out"
-        })
-        .from('.greeting-text', {
-            letterSpacing: "20px",
-            filter: "blur(10px)",
-            duration: 1.2,
-            ease: "power4.out"
-        }, "-=0.5");
-    };
-
-    // 0. Mob Psycho Preloader & Site Reveal
-    const initPreloader = () => {
-        const loadCount = document.getElementById('load-count');
-        const preloader = document.getElementById('preloader');
-        const counterWrap = document.querySelector('.mob-counter');
-        const aura = document.querySelector('.shigeo-aura');
-        const status = document.querySelector('.mob-status');
-        
-        if (!preloader) return;
-
-        // Check if we already showed the preloader this session
-        if (sessionStorage.getItem('preloader_shown') === 'true') {
-            preloader.style.display = 'none';
-            gsap.set(['header', 'main'], { opacity: 1, y: 0 });
-            gsap.set('.watermark-text', { opacity: 1, y: 0 });
-            // Show greeting anyway for the "Welcome" feel
-            setTimeout(showSystemGreeting, 500);
-            return;
-        }
-
-        const tl = gsap.timeline();
-        let progressVal = { value: 0 };
-
-        // Animate counter
-        tl.to(progressVal, {
-            value: 100,
-            duration: 3,
-            ease: "none",
-            onUpdate: function() {
-                const rounded = Math.round(progressVal.value);
-                if (loadCount) loadCount.textContent = rounded.toString().padStart(2, '0');
-                if (aura) gsap.set(aura, { opacity: (rounded/100) * 0.3, scale: 0.5 + (rounded/100) });
-                
-                if (rounded > 50 && rounded < 90) {
-                    if (status) {
-                        status.textContent = "UPLINK_STABILIZING...";
-                    }
-                }
-                
-                if (rounded > 90 && counterWrap && status) {
-                    counterWrap.classList.add('glitch');
-                    counterWrap.setAttribute('data-text', rounded);
-                    status.textContent = "CRITICAL LIMIT REACHED";
-                    status.style.color = "#ff3333";
-                }
-            }
-        });
-
-        // Final Explosion Reveal
-        tl.to(counterWrap, { 
-            scale: 2, 
-            opacity: 0, 
-            duration: 0.5, 
-            ease: "power4.in" 
-        })
-        .to(preloader, {
-            opacity: 0,
-            duration: 0.8,
-            top: '-100%',
-            ease: "power4.inOut",
-            onComplete: () => {
-                preloader.style.display = 'none';
-                sessionStorage.setItem('preloader_shown', 'true');
-                showSystemGreeting();
-            }
-        }, "-=0.2")
-        // Reveal site content
-        .to(['header', 'main'], { 
-            opacity: 1, 
-            y: 0, 
-            duration: 1, 
-            stagger: 0.1,
-            ease: "expo.out" 
-        }, "-=0.5")
-        .from('.watermark-text', {
-            opacity: 0,
-            y: 100,
-            stagger: 0.1,
-            duration: 1.2,
-            ease: "power4.out"
-        }, "-=0.8");
-    };
-
-    // Run preloader immediately
-    initPreloader();
+    // Site Reveal (Instant)
+    gsap.set(['header', 'main'], { opacity: 1, y: 0 });
+    gsap.set('.watermark-text', { opacity: 1, y: 0 });
 
     // 1. Load YouTube IFrame API
     const tag = document.createElement('script');
@@ -547,6 +436,47 @@
                 });
             });
         }
+
+        // Magnetic Social Buttons
+        const socialPills = document.querySelectorAll('.social-pill');
+        socialPills.forEach(pill => {
+            pill.addEventListener('mousemove', (e) => {
+                const rect = pill.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(pill, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+                
+                const icon = pill.querySelector('i');
+                gsap.to(icon, {
+                    x: x * 0.5,
+                    y: y * 0.5,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+
+            pill.addEventListener('mouseleave', () => {
+                gsap.to(pill, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "elastic.out(1, 0.3)"
+                });
+                const icon = pill.querySelector('i');
+                gsap.to(icon, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
     };
 
     // 0. SYSTEM CLOCK
