@@ -946,6 +946,35 @@ body.light-theme::before {
 
 
 
+/* Signal Bridge */
+.signal-bridge {
+    padding: 4rem 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, transparent, rgba(255, 51, 51, 0.02), transparent);
+}
+
+.bridge-lines {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    opacity: 0.3;
+}
+
+.bridge-lines span {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--accent-red), transparent);
+    animation: bridgePulse 3s infinite ease-in-out;
+}
+
+@keyframes bridgePulse {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.2; }
+    50% { transform: scaleY(1); opacity: 1; }
+}
+
+.bridge-lines span:nth-child(even) { animation-delay: 1.5s; }
+.bridge-lines span:nth-child(3n) { animation-delay: 0.8s; }
+
 /* --- YouTube Content Hub --- */
 .hub {
     padding: 6rem 0;
