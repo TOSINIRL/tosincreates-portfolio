@@ -403,29 +403,33 @@
 
         const setView = (view) => {
             const isList = view === 'list';
+            if (projectGrid.classList.contains('list-view') === isList) return;
             
             // UI Sync
             gridViewBtn.classList.toggle('active', !isList);
             listViewBtn.classList.toggle('active', isList);
 
-            // Animate Layout Change
-            gsap.to(projectCards, {
+            // High-Performance Animation
+            const tl = gsap.timeline();
+
+            tl.to(projectCards, {
                 opacity: 0,
-                y: 20,
-                duration: 0.3,
-                stagger: 0.05,
-                onComplete: () => {
-                    projectGrid.classList.toggle('list-view', isList);
-                    
-                    // Re-animate in
-                    gsap.to(projectCards, {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.5,
-                        stagger: 0.05,
-                        ease: "power2.out"
-                    });
-                }
+                scale: 0.95,
+                duration: 0.2,
+                stagger: 0.02,
+                ease: "power2.in",
+                force3D: true // Force GPU acceleration
+            })
+            .call(() => {
+                projectGrid.classList.toggle('list-view', isList);
+            })
+            .to(projectCards, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.4,
+                stagger: 0.03,
+                ease: "back.out(1.2)",
+                force3D: true
             });
 
             localStorage.setItem('project_view', view);
