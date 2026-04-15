@@ -469,10 +469,75 @@
         }
     };
 
+    // 4. ECOSYSTEM FEATURES
+    const initEcosystem = () => {
+        // Agentic Log Simulator
+        const logContainer = document.getElementById('agenticLog');
+        const logs = [
+            'Analyzing viewport dynamics...',
+            'Optimizing luxury delivery paths...',
+            'Agent Tosin: Status Nominal.',
+            'Executing logic-driven design...',
+            'Syncing with AI ecosystem...',
+            'Bespoke experience initiated.',
+            'Neutralizing UI friction points...',
+            'Aura synchronization: 100%',
+            'Mastering agentic architecture...'
+        ];
+
+        let logIndex = 0;
+        const addLog = () => {
+            if (!logContainer) return;
+            const line = document.createElement('div');
+            line.className = 'log-line';
+            line.innerHTML = `> ${logs[logIndex]}`;
+            logContainer.appendChild(line);
+            
+            // Auto-scroll and maintain count
+            if (logContainer.children.length > 5) {
+                logContainer.removeChild(logContainer.firstChild);
+            }
+            
+            logIndex = (logIndex + 1) % logs.length;
+            setTimeout(addLog, Math.random() * 2000 + 1500);
+        };
+        addLog();
+
+        // Interactive Logic Orb
+        const orb = document.getElementById('logicOrb');
+        if (orb) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX - window.innerWidth / 2) / 25;
+                const y = (e.clientY - window.innerHeight / 2) / 25;
+                gsap.to(orb, {
+                    x: x,
+                    y: y,
+                    duration: 1.2,
+                    ease: "power2.out"
+                });
+            });
+        }
+
+        // Digital Clock
+        const updateClock = () => {
+            const clock = document.getElementById('localTime');
+            if (clock) {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                clock.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            setTimeout(updateClock, 1000);
+        };
+        updateClock();
+    };
+
     // Ensure GSAP plugins are ready
     setTimeout(() => {
         initEffects();
         initViewToggle();
+        initEcosystem();
     }, 500);
 
 })();

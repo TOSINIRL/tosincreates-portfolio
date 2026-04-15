@@ -75,7 +75,6 @@
         <section class="about" id="about">
             <div class="container">
                 <div class="about-card">
-
                     <!-- Left accent bar -->
                     <div class="about-accent-bar"></div>
 
@@ -103,11 +102,61 @@
                     </div>
 
                     <!-- Right decorative glow orb -->
-                    <div class="about-orb"></div>
+                    <div class="about-orb" id="logicOrb"></div>
+                </div>
 
+                <!-- Ecosystem Grid: Agentic Log & Daily Mission -->
+                <div class="ecosystem-grid">
+                    <!-- Agentic Log -->
+                    <div class="system-card terminal-card">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="terminal-title">AGENTIC_LOG.EXE</div>
+                        </div>
+                        <div class="terminal-body" id="agenticLog">
+                            <div class="log-line">> Initiating agentic sequence...</div>
+                            <div class="log-line">> Scanning for luxury assets...</div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Mission -->
+                    <div class="system-card mission-card">
+                        <div class="about-top">
+                            <span class="about-eyebrow">Intel Report</span>
+                        </div>
+                        <h3 class="mission-title">Current Focus</h3>
+                        <p class="mission-desc">Mastering Advanced Agentic Workflows & Multi-Agent Orchestration for 2026 Web Ecosystems.</p>
+                        <div class="mission-status">
+                            <div class="status-pulse"></div>
+                            <span>ACTIVE RESEARCH</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Tech Marquee -->
+        <div class="tech-marquee-wrap">
+            <div class="tech-marquee">
+                <div class="marquee-content">
+                    <span>GSAP</span><span>•</span>
+                    <span>JAVASCRIPT</span><span>•</span>
+                    <span>NEXT.JS</span><span>•</span>
+                    <span>AGENTIC AI</span><span>•</span>
+                    <span>UX DESIGN</span><span>•</span>
+                    <span>LUXURY CODE</span><span>•</span>
+                    <!-- Duplicate for infinite scroll -->
+                    <span>GSAP</span><span>•</span>
+                    <span>JAVASCRIPT</span><span>•</span>
+                    <span>NEXT.JS</span><span>•</span>
+                    <span>AGENTIC AI</span><span>•</span>
+                    <span>UX DESIGN</span><span>•</span>
+                    <span>LUXURY CODE</span><span>•</span>
+                </div>
+            </div>
+        </div>
 
         <!-- Work Section: Cases Studies (Pro Grid) -->
         <section class="work" id="work">
@@ -205,6 +254,57 @@
             </div>
         </section>
 
+
+        <!-- System Metrics Section -->
+        <section class="metrics" id="metrics">
+            <div class="container">
+                <div class="metrics-grid">
+                    <!-- Skills / Performance -->
+                    <div class="metrics-card">
+                        <div class="about-top">
+                            <span class="about-eyebrow">System Performance</span>
+                        </div>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Agentic Architecture</span><span>98%</span></div>
+                                <div class="skill-track"><div class="skill-fill" style="width: 98%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Luxury UX Design</span><span>95%</span></div>
+                                <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Advanced GSAP</span><span>92%</span></div>
+                                <div class="skill-track"><div class="skill-fill" style="width: 92%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timezone & Signal -->
+                    <div class="metrics-card signal-card">
+                        <div class="about-top">
+                            <span class="about-eyebrow">Aura Synchronization</span>
+                        </div>
+                        <div class="clock-display">
+                            <div class="time-item">
+                                <span class="time-label">LOCAL_TIME</span>
+                                <span class="time-value" id="localTime">00:00:00</span>
+                            </div>
+                            <div class="time-divider"></div>
+                            <div class="time-item">
+                                <span class="time-label">LOGIC_SYNC</span>
+                                <span class="time-value">EST_GLOBAL</span>
+                            </div>
+                        </div>
+                        <div class="signal-grid">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- YouTube Content Hub -->
         <section class="hub" id="socials">
