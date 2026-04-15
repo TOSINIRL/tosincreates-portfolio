@@ -332,8 +332,8 @@ body.light-theme::before {
 /* --- About Section --- */
 
 .about {
-    padding: 0 0 6rem 0; /* Removed top padding to pull it up */
-    margin-top: -6rem; /* Stronger pull into the hero space */
+    padding: 120px 0 6rem 0; /* Space for the fixed header */
+    margin-top: 0; 
 }
 
 /* Main card */
