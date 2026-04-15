@@ -1,0 +1,363 @@
+(function() {
+    // 0. Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const themeDot = document.querySelector('.theme-dot');
+
+    // Robust Initialization
+    const initTheme = () => {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            if (themeToggle) {
+                themeToggle.classList.remove('dark-active');
+                gsap.set(themeDot, { x: 0 });
+            }
+        } else {
+            body.classList.remove('light-theme');
+            if (themeToggle) {
+                themeToggle.classList.add('dark-active');
+                gsap.set(themeDot, { x: 22 });
+            }
+        }
+    };
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.toggle('light-theme');
+            const theme = isLight ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            
+            // UI Sync
+            themeToggle.classList.toggle('dark-active', !isLight);
+            gsap.to(themeDot, { 
+                x: isLight ? 0 : 22, 
+                duration: 0.4, 
+                ease: "back.out(1.7)" 
+            });
+        });
+        
+        // Initial setup
+        initTheme();
+    }
+
+    // 0. Mob Psycho Preloader & Site Reveal
+    window.addEventListener('load', () => {
+        const loadCount = document.getElementById('load-count');
+        const preloader = document.getElementById('preloader');
+        const counterWrap = document.querySelector('.mob-counter');
+        const aura = document.querySelector('.shigeo-aura');
+        const status = document.querySelector('.mob-status');
+        
+        const tl = gsap.timeline();
+        let progress = { value: 0 };
+
+        // Animate counter
+        tl.to(progress, {
+            value: 100,
+            duration: 3,
+            ease: "power2.inOut",
+            onUpdate: () => {
+                const rounded = Math.floor(progress.value);
+                loadCount.textContent = rounded < 10 ? `0${rounded}` : rounded;
+                
+                // Intensity effects as we approach 100%
+                if (rounded > 60) {
+                    gsap.set(aura, { opacity: (rounded - 60) / 40 });
+                    gsap.set(counterWrap, { 
+                        x: gsap.utils.random(-2, 2), 
+                        y: gsap.utils.random(-2, 2) 
+                    });
+                }
+                
+                if (rounded > 90) {
+                    counterWrap.classList.add('glitch');
+                    counterWrap.setAttribute('data-text', rounded);
+                    status.textContent = "CRITICAL LIMIT REACHED";
+                    status.style.color = "#ff3333";
+                }
+            }
+        });
+
+        // Final Explosion Reveal
+        tl.to(counterWrap, { 
+            scale: 2, 
+            opacity: 0, 
+            duration: 0.5, 
+            ease: "power4.in" 
+        })
+        .to(preloader, {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut",
+            onComplete: () => {
+                preloader.style.display = 'none';
+            }
+        }, "-=0.2")
+        // Reveal site content
+        .to(['header', 'main'], { 
+            opacity: 1, 
+            y: 0, 
+            duration: 1.2, 
+            stagger: 0.2,
+            ease: "expo.out" 
+        }, "-=0.5")
+        .from('.watermark-text', {
+            opacity: 0,
+            y: 100,
+            stagger: 0.2,
+            duration: 1.5,
+            ease: "power4.out"
+        }, "-=1");
+    });
+
+    // 1. Load YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    const players = {};
+    const videoData = [
+        { id: 'monkey-player', videoId: 'UNarPhkqDD0', cardClass: '.featured-monkey', title: 'HOW TO RIZZ UP EVERY BADDIE 😈 (MONKEY APP)' },
+        { id: 'shangchi-player', videoId: '1UVkZgmm4Gk', cardClass: '.featured-shangchi', title: 'WHEN SHANG CHI WAS PUTTING BTA ON HIS POPS' }
+    ];
+
+    window.onYouTubeIframeAPIReady = () => {
+        videoData.forEach(data => setupVideo(data));
+    };
+
+    function setupVideo(data) {
+        const card = document.querySelector(data.cardClass);
+        if (!card) return;
+
+        const img = card.querySelector('.thumbnail-img');
+        const title = card.querySelector('.video-title');
+        const volBtn = card.querySelector('.volume-control');
+        const dot = volBtn.querySelector('.dot');
+        
+        if (title) title.innerText = data.title;
+        if (img) img.src = `https://i.ytimg.com/vi/${data.videoId}/hqdefault.jpg`;
+
+        // Initialize Player
+        players[data.id] = new YT.Player(data.id, {
+            height: '100%',
+            width: '100%',
+            videoId: data.videoId,
+            playerVars: {
+                'autoplay': 0,
+                'controls': 0,
+                'modestbranding': 1,
+                'rel': 0,
+                'showinfo': 0,
+                'loop': 1,
+                'playlist': data.videoId,
+                'playsinline': 1,
+                'mute': 1,
+                'enablejsapi': 1
+            },
+            events: {
+                'onReady': (event) => { event.target.mute(); },
+                'onStateChange': (event) => {
+                    if (event.data === YT.PlayerState.PLAYING) {
+                        gsap.to(event.target.getIframe(), { opacity: 1, duration: 0.4 });
+                        gsap.to(img, { opacity: 0, duration: 0.4 });
+                    }
+                }
+            }
+        });
+
+        // Volume Toggle Sync
+        let audioOn = localStorage.getItem('audio_preview') === 'true';
+        if (audioOn) {
+            volBtn.classList.add('on');
+            gsap.set(dot, { x: 22 });
+        }
+
+        volBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            audioOn = !audioOn;
+            localStorage.setItem('audio_preview', audioOn);
+            volBtn.classList.toggle('on', audioOn);
+            gsap.to(dot, { x: audioOn ? 22 : 0, duration: 0.4, ease: "back.out" });
+
+            if (players[data.id]) {
+                if (audioOn) players[data.id].unMute();
+                else players[data.id].mute();
+            }
+        });
+
+        // Hover Logic
+        card.addEventListener('mouseenter', () => {
+            const player = players[data.id];
+            if (player && player.playVideo) {
+                if (localStorage.getItem('audio_preview') === 'true') player.unMute();
+                else player.mute();
+                player.playVideo();
+            }
+            gsap.to(card, { scale: 1.02, duration: 0.4, ease: "power2.out" });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            const player = players[data.id];
+            if (player && player.pauseVideo) player.pauseVideo();
+            gsap.to(card.querySelector('iframe'), { opacity: 0, duration: 0.2 });
+            gsap.to(img, { opacity: 1, duration: 0.2 });
+            gsap.to(card, { scale: 1, duration: 0.4 });
+        });
+    }
+
+    // 2. Social Stats Real-Time Logic
+    const initSocialStats = () => {
+        const subDisplay = document.getElementById('sub-count');
+        const discordDisplay = document.getElementById('discord-count');
+        
+        if (!subDisplay || !discordDisplay) return;
+
+        // Configuration
+        const CONFIG = {
+            discordInvite: 'CVVjUz86S9',
+            youtubeChannelId: 'UCck1kagNTkAlriBIRE8NPog',
+            youtubeApiKey: 'AIzaSyDI7ia--llieRsL_TaPVw5p0A1-B9UdHrE',
+            refreshInterval: 60000 // 1 minute
+        };
+
+        const state = {
+            subs: 1590, // Fallback
+            discord: 5   // Fallback
+        };
+
+        const animateValue = (el, start, end, suffix = "") => {
+            let obj = { val: start };
+            gsap.to(obj, {
+                val: end,
+                duration: 1.5,
+                ease: "power2.out",
+                onUpdate: () => {
+                    const val = Math.floor(obj.val);
+                    if (suffix === "K" && val >= 1000) {
+                        el.textContent = (val / 1000).toFixed(2) + "K";
+                    } else if (suffix === "K") {
+                        el.textContent = val.toLocaleString();
+                    } else {
+                        el.textContent = val.toLocaleString();
+                    }
+                }
+            });
+
+            // Pulse effect on update
+            const dot = el.previousElementSibling;
+            if (dot && dot.classList.contains('pulse-dot')) {
+                gsap.to(dot, { 
+                    scale: 1.5, 
+                    backgroundColor: "#00ff88", 
+                    duration: 0.3, 
+                    yoyo: true, 
+                    repeat: 1 
+                });
+            }
+        };
+
+        const fetchStats = async () => {
+            try {
+                // 1. Fetch Discord Data (Keyless)
+                const discordRes = await fetch(`https://discord.com/api/v9/invites/${CONFIG.discordInvite}?with_counts=true`);
+                const discordData = await discordRes.json();
+                if (discordData.approximate_member_count !== undefined) {
+                    const newDiscord = discordData.approximate_member_count;
+                    if (newDiscord !== state.discord) {
+                        animateValue(discordDisplay, state.discord, newDiscord);
+                        state.discord = newDiscord;
+                    }
+                }
+
+                // 2. Fetch YouTube Data (Requires Key)
+                if (CONFIG.youtubeApiKey) {
+                    const ytRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CONFIG.youtubeChannelId}&key=${CONFIG.youtubeApiKey}`);
+                    const ytData = await ytRes.json();
+                    if (ytData.items && ytData.items[0]) {
+                        const newSubs = parseInt(ytData.items[0].statistics.subscriberCount);
+                        if (newSubs !== state.subs) {
+                            animateValue(subDisplay, state.subs, newSubs, "K");
+                            state.subs = newSubs;
+                        }
+                    }
+                } else {
+                    // Slight variation to "feel" live if no key yet (simulated logic but keeping current state)
+                    // Removing simulation to be honest, but initializing once
+                }
+            } catch (err) {
+                console.warn("Failed to fetch live stats:", err);
+            }
+        };
+
+        // Initial fetch
+        fetchStats();
+
+        // Entry Animation
+        animateValue(subDisplay, 0, state.subs, "K");
+        animateValue(discordDisplay, 0, state.discord);
+
+        // Auto-refresh poll
+        setInterval(fetchStats, CONFIG.refreshInterval);
+
+        // Tab Switching Logic
+        const tabs = document.querySelectorAll('.yt-tab');
+        const videosContent = document.getElementById('videos-content');
+        const communityContent = document.getElementById('community-content');
+        const featuredVideo = document.querySelector('.hero-video-wrap');
+        const interactiveHeader = document.querySelector('.more-videos-header');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const target = tab.getAttribute('data-tab');
+                if (target === 'videos') {
+                    videosContent.style.display = 'grid';
+                    if (featuredVideo) featuredVideo.style.display = 'block';
+                    if (interactiveHeader) interactiveHeader.style.display = 'block';
+                    communityContent.style.display = 'none';
+                } else {
+                    videosContent.style.display = 'none';
+                    if (featuredVideo) featuredVideo.style.display = 'none';
+                    if (interactiveHeader) interactiveHeader.style.display = 'none';
+                    communityContent.style.display = 'block';
+                }
+            });
+        });
+    };
+
+    // --- Effects ---
+    const initEffects = () => {
+        initSocialStats();
+
+        if (document.querySelector('.mission-reveal')) {
+            gsap.from('.mission-reveal', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: '.mission-reveal',
+                    start: 'top 85%'
+                }
+            });
+        }
+
+        // Hero Watermark Parallax
+        gsap.to('.hero-watermark', {
+            y: 100,
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    };
+
+    // Ensure GSAP plugins are ready
+    setTimeout(initEffects, 500);
+
+})();
