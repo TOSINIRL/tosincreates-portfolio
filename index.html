@@ -317,9 +317,15 @@
         <section class="hub" id="socials">
             <div class="container">
 
-                <!-- Channel Header (Matched to Screenshot) -->
+                <!-- Channel Header -->
                 <div class="yt-channel-header">
-                    <div class="yt-channel-banner"></div>
+                    <div class="yt-channel-banner">
+                        <div class="yt-banner-specs">
+                            <div class="spec-item"><span class="spec-dot"></span> 4K_UPLINK</div>
+                            <div class="spec-item"><span class="spec-dot"></span> HDR_ENABLED</div>
+                            <div class="spec-item"><span class="spec-dot"></span> 60FPS_SYNC</div>
+                        </div>
+                    </div>
                     <div class="yt-channel-meta">
                         <div class="yt-channel-avatar-wrap">
                             <img src="https://yt3.googleusercontent.com/zx10fuWqPwDa7uQhcf-ajlOKGNH3bXg_g7iide2NKQWUYK5bnap0Apryln_4ciFgs-VlFRwd3Q=s900-c-k-c0x00ffffff-no-rj" alt="TosinIRL" class="yt-channel-avatar">
@@ -355,24 +361,45 @@
                     <div class="yt-tab" data-tab="community"><i class="fas fa-users"></i> Community</div>
                 </div>
 
-                <!-- Featured Previews -->
+                <!-- Featured Previews Grid -->
                 <div class="yt-tab-content">
-                    
-                    <div class="hero-video-wrap">
-                        <div class="hero-video-badge"><i class="fas fa-fire"></i> Primary Preview</div>
-                        <div class="video-card featured-full featured-monkey" data-video-id="UNarPhkqDD0">
-                            <div class="thumbnail">
-                                <div class="volume-control"><i class="fas fa-volume-up"></i><div class="dot"></div></div>
-                                <img src="https://i.ytimg.com/vi/UNarPhkqDD0/hqdefault.jpg" class="thumbnail-img" alt="Monkey App Preview">
-                                <div id="monkey-player" class="yt-iframe"></div>
-                                <div class="featured-play-hint"><i class="fas fa-play"></i></div>
+                    <div class="yt-grid-layout">
+                        <!-- Left Sidebar -->
+                        <div class="yt-sidebar">
+                            <div class="dashboard-card sidebar-card">
+                                <div class="about-top">
+                                    <span class="about-eyebrow">Studio Specs</span>
+                                </div>
+                                <ul class="spec-list">
+                                    <li><i class="fas fa-video"></i> 4K Cinematic Resolution</li>
+                                    <li><i class="fas fa-microphone"></i> Premium Audio Master</li>
+                                    <li><i class="fas fa-bolt"></i> High-Energy Editing</li>
+                                </ul>
+                                <div class="sidebar-status">
+                                    <span class="pulse-dot"></span> CURRENTLY_UPLOADING
+                                </div>
                             </div>
-                            <div class="video-content featured-content">
-                                <span class="featured-label">LATEST DROP</span>
-                                <h3 class="video-title-large">HOW TO RIZZ UP EVERY BADDIE 😈 (MONKEY APP)</h3>
-                                <p class="featured-desc">High-engagement content production showcasing dynamic interaction and audience growth strategies.</p>
-                                <div class="featured-actions">
-                                    <a href="https://www.youtube.com/watch?v=UNarPhkqDD0" class="btn btn-primary" target="_blank" rel="noopener">Watch Now</a>
+                        </div>
+
+                        <!-- Right Content (Video) -->
+                        <div class="yt-main-content">
+                            <div class="hero-video-wrap">
+                                <div class="hero-video-badge"><i class="fas fa-fire"></i> Primary Preview</div>
+                                <div class="video-card featured-full featured-monkey" data-video-id="UNarPhkqDD0">
+                                    <div class="thumbnail">
+                                        <div class="volume-control"><i class="fas fa-volume-up"></i><div class="dot"></div></div>
+                                        <img src="https://i.ytimg.com/vi/UNarPhkqDD0/hqdefault.jpg" class="thumbnail-img" alt="Monkey App Preview">
+                                        <div id="monkey-player" class="yt-iframe"></div>
+                                        <div class="featured-play-hint"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <div class="video-content featured-content">
+                                        <span class="featured-label">LATEST DROP</span>
+                                        <h3 class="video-title-large">HOW TO RIZZ UP EVERY BADDIE 😈 (MONKEY APP)</h3>
+                                        <p class="featured-desc">High-engagement content production showcasing dynamic interaction and audience growth strategies.</p>
+                                        <div class="featured-actions">
+                                            <a href="https://www.youtube.com/watch?v=UNarPhkqDD0" class="btn btn-primary" target="_blank" rel="noopener">Watch Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -419,9 +446,47 @@
                 </div>
 
             </div>
+        <!-- Contact Console: The Grand Finale -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-inner">
+                        <div class="about-top">
+                            <span class="about-eyebrow">Direct Uplink</span>
+                        </div>
+                        <h2 class="contact-heading">Ready to Build<br><span class="about-heading-highlight">Excellence?</span></h2>
+                        <p class="contact-desc">Currently accepting premium projects and high-end collaborations for 2026.</p>
+                        <div class="contact-btns">
+                            <a href="mailto:contact@tosincreates.com" class="btn btn-primary">Start Transmission</a>
+                            <div class="social-pills">
+                                <a href="#" class="social-pill"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-pill"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-pill"><i class="fab fa-discord"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
+
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <div class="logo">TOSIN<span>CREATES</span></div>
+                    <p>© 2026. All Rights Reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="status-badge">
+                        <div class="status-pulse"></div>
+                        <span>SYSTEMS_OPERATIONAL // AGENTIC_AI_ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="main.js?v=22"></script>
 </body>
