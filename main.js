@@ -437,8 +437,8 @@
             });
         }
 
-        // Magnetic Social Buttons
-        const socialPills = document.querySelectorAll('.social-pill');
+        // Magnetic Social Buttons (Pills and Hero Quick Links)
+        const socialPills = document.querySelectorAll('.social-pill, .hero-social-quick a');
         socialPills.forEach(pill => {
             pill.addEventListener('mousemove', (e) => {
                 const rect = pill.getBoundingClientRect();

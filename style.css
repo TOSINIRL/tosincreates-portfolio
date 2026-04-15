@@ -151,29 +151,42 @@ body::before {
     color: var(--accent-red);
 }
 
-.header-socials {
+/* Hero Social Quick Links */
+.hero-social-quick {
     display: flex;
-    gap: 15px;
-    margin-right: 20px;
-    padding-right: 20px;
-    border-right: 1px solid var(--border-color);
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
-.header-social-link {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+.hero-social-quick a {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
 }
 
-.header-social-link:hover {
-    color: var(--accent-red);
-    transform: translateY(-2px);
+.hero-social-quick a:hover {
+    color: #fff;
+    transform: translateY(-5px);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
-@media (max-width: 850px) {
-    .header-socials {
-        display: none;
-    }
+.hero-social-quick a::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--accent-red);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.hero-social-quick a:hover::after {
+    width: 20px;
 }
 
 .profile-pill {
