@@ -483,6 +483,7 @@
     const updateClock = () => {
         const clock = document.getElementById('localTime');
         const headerClock = document.getElementById('headerTime');
+        const heroClock = document.getElementById('heroClock');
         
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -492,10 +493,22 @@
 
         if (clock) clock.textContent = timeStr;
         if (headerClock) headerClock.textContent = timeStr;
+        if (heroClock) heroClock.textContent = timeStr;
 
         setTimeout(updateClock, 1000);
     };
     updateClock();
+
+    // 0. Status Dot Pulsing
+    if (document.querySelector('.status-dot')) {
+        gsap.to('.status-dot', {
+            opacity: 0.2,
+            duration: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut"
+        });
+    }
 
     // Ensure GSAP plugins are ready
     setTimeout(() => {
