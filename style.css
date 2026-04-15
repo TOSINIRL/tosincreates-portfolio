@@ -332,7 +332,7 @@ body.light-theme::before {
 /* --- About Section --- */
 
 .about {
-    padding: 120px 0 6rem 0; /* Space for the fixed header */
+    padding: 240px 0 6rem 0; /* Pushed down significantly (approx double the previous) */
     margin-top: 0; 
 }
 
