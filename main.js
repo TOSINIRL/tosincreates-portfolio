@@ -386,10 +386,32 @@
                 scrollTrigger: {
                     trigger: '.project-grid',
                     start: 'top 85%',
-                    toggleActions: "play none none reverse" // plays on scroll down, reverses on scroll up
+                    toggleActions: "play none none reverse"
                 }
             });
         }
+
+        // About Section Reveal
+        const aboutTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.about',
+                start: 'top 80%',
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        aboutTl.from('.about-content-left', {
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        })
+        .from('.about-content-right', {
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        }, "-=0.8");
     };
 
     // 3. Grid / List View Toggle Logic
