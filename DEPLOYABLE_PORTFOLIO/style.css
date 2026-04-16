@@ -1365,6 +1365,7 @@ a {
 .social-pill.ig { --platform-color: #e4405f; --platform-rgb: 228, 64, 95; }
 .social-pill.dc { --platform-color: #5865f2; --platform-rgb: 88, 101, 242; }
 .social-pill.tw { --platform-color: #9146ff; --platform-rgb: 145, 70, 255; }
+.social-pill.li { --platform-color: #0077b5; --platform-rgb: 0, 119, 181; }
 
 .social-pill:hover i {
     color: var(--platform-color);
