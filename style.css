@@ -2405,7 +2405,25 @@ body::after {
     }
 
     .long-form-grid {
-        grid-template-columns: 1fr;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .long-form-grid .video-card {
+        padding: 12px !important;
+        min-height: auto !important;
+    }
+
+    .long-form-grid .video-title {
+        font-size: 0.75rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .long-form-grid .btn-small, .long-form-grid .btn-lock {
+        padding: 6px 10px !important;
+        font-size: 0.65rem !important;
     }
 
     /* Clock Display Fix (Screenshot 1) */
