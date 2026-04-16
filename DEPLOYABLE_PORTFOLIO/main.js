@@ -80,37 +80,6 @@
 
 
 
-    // 0.5 System Greeting Logic (Restored)
-    const showSystemGreeting = () => {
-        const greeting = document.getElementById('system-greeting');
-        if (!greeting) return;
-
-        greeting.style.display = 'flex';
-        const gTl = gsap.timeline({
-            onComplete: () => {
-                gsap.to(greeting, {
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: 1.5,
-                    onComplete: () => greeting.style.display = 'none'
-                });
-            }
-        });
-
-        gTl.to('.greeting-content', {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "expo.out"
-        })
-        .from('.greeting-text', {
-            letterSpacing: "20px",
-            filter: "blur(10px)",
-            duration: 1.2,
-            ease: "power4.out"
-        }, "-=0.5");
-    };
-
     // 0. Mob Psycho Preloader & Site Reveal (Restored)
     const initPreloader = () => {
         const loadCount = document.getElementById('load-count');
@@ -123,7 +92,6 @@
             preloader.style.display = 'none';
             gsap.set(['header', 'main'], { opacity: 1, y: 0 });
             gsap.set('.watermark-text', { opacity: 1, y: 0 });
-            setTimeout(showSystemGreeting, 500);
             return;
         }
 
@@ -159,7 +127,6 @@
                 preloader.style.display = 'none';
                 document.body.classList.remove('js-loading');
                 sessionStorage.setItem('preloader_shown', 'true');
-                showSystemGreeting();
             }
         }, "-=0.2")
         // Reveal site content
