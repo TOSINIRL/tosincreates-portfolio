@@ -41,6 +41,42 @@
         initTheme();
     }
 
+    // 0.1 Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+
+            // Animation for links
+            if (isOpen) {
+                gsap.from('.mobile-nav-links li', {
+                    y: 30,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    delay: 0.2
+                });
+            }
+        });
+
+        // Close menu when link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
 
 
     // Site Reveal (Instant)
