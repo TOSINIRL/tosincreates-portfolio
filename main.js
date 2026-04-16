@@ -79,9 +79,107 @@
 
 
 
-    // Site Reveal (Instant)
-    gsap.set(['header', 'main', '.hero-content'], { opacity: 1, y: 0 });
-    gsap.set('.watermark-text', { opacity: 1, y: 0 });
+
+    // 0.5 System Greeting Logic (Restored)
+    const showSystemGreeting = () => {
+        const greeting = document.getElementById('system-greeting');
+        if (!greeting) return;
+
+        greeting.style.display = 'flex';
+        const gTl = gsap.timeline({
+            onComplete: () => {
+                gsap.to(greeting, {
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 1.5,
+                    onComplete: () => greeting.style.display = 'none'
+                });
+            }
+        });
+
+        gTl.to('.greeting-content', {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "expo.out"
+        })
+        .from('.greeting-text', {
+            letterSpacing: "20px",
+            filter: "blur(10px)",
+            duration: 1.2,
+            ease: "power4.out"
+        }, "-=0.5");
+    };
+
+    // 0. Mob Psycho Preloader & Site Reveal (Restored)
+    const initPreloader = () => {
+        const loadCount = document.getElementById('load-count');
+        const preloader = document.getElementById('preloader');
+        
+        if (!preloader) return;
+
+        // Skip if shown this session
+        if (sessionStorage.getItem('preloader_shown') === 'true') {
+            preloader.style.display = 'none';
+            gsap.set(['header', 'main'], { opacity: 1, y: 0 });
+            gsap.set('.watermark-text', { opacity: 1, y: 0 });
+            setTimeout(showSystemGreeting, 500);
+            return;
+        }
+
+        document.body.classList.add('js-loading');
+        const tl = gsap.timeline();
+        let progressVal = { value: 0 };
+
+        // Animate counter
+        tl.to(progressVal, {
+            value: 100,
+            duration: 3,
+            ease: "power2.inOut",
+            onUpdate: () => {
+                const rounded = Math.floor(progressVal.value);
+                if (loadCount) {
+                    loadCount.textContent = rounded < 10 ? `0${rounded}` : rounded;
+                    // Add glitch effect at 99%
+                    if (rounded >= 99) loadCount.classList.add('glitch');
+                }
+            }
+        })
+        .to('.shigeo-aura', {
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.in"
+        }, "-=1.5")
+        // Dismiss Preloader
+        .to(preloader, {
+            clipPath: 'circle(0% at 50% 50%)',
+            duration: 1.2,
+            ease: "expo.inOut",
+            onComplete: () => {
+                preloader.style.display = 'none';
+                document.body.classList.remove('js-loading');
+                sessionStorage.setItem('preloader_shown', 'true');
+                showSystemGreeting();
+            }
+        }, "-=0.2")
+        // Reveal site content
+        .to(['header', 'main'], {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out"
+        }, "-=0.5")
+        .to('.watermark-text', {
+            opacity: 0.03,
+            y: 0,
+            duration: 1.5,
+            stagger: 0.3
+        }, "-=1");
+    };
+
+    // Initialize Preloader
+    initPreloader();
 
     // 1. Load YouTube IFrame API
     const tag = document.createElement('script');

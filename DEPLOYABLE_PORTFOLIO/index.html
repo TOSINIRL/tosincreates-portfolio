@@ -7,13 +7,39 @@
     <link rel="icon" type="image/png" href="assets/images/tc_media_hub_logo.png?v=22">
     <link rel="shortcut icon" href="assets/images/tc_media_hub_logo.png?v=22">
     <link rel="apple-touch-icon" href="assets/images/tc_media_hub_logo.png?v=23">
-    <link rel="stylesheet" href="style.css?v=204.5">
+    <link rel="stylesheet" href="style.css?v=205.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Premium Preloader -->
+    <!-- Mob Psycho Inspired Loading Screen -->
+    <div id="preloader">
+        <div class="mob-container">
+            <div class="shigeo-aura"></div>
+            <div class="mob-counter">
+                <span id="load-count">00</span>
+                <span class="mob-percent">%</span>
+            </div>
+            <div class="mob-status">Synchronizing Digital Aura</div>
+        </div>
+    </div>
 
+    <!-- System Greeting Overlay -->
+    <div id="system-greeting" class="system-greeting">
+        <div class="greeting-content">
+            <div class="greeting-header">
+                <span class="pulse-dot"></span>
+                <span class="greeting-status">UPLINK_ESTABLISHED</span>
+            </div>
+            <h1 class="greeting-text">WELCOME TO THE<br><span class="accent-text">ECOSYSTEM</span></h1>
+            <div class="greeting-footer">
+                <span class="greeting-code">USER_ID: VISITOR_GUEST</span>
+                <span class="greeting-code">AURA: SYNCHRONIZED</span>
+            </div>
+        </div>
+    </div>
 
     <div class="noise-overlay"></div>
     
@@ -443,7 +469,7 @@
                 <div class="footer-right">
                     <div class="status-badge">
                         <div class="status-pulse"></div>
-                        <span>SYSTEMS_OPERATIONAL // VER: 204.5</span>
+                        <span>SYSTEMS_OPERATIONAL // VER: 205.0</span>
                     </div>
                 </div>
             </div>
