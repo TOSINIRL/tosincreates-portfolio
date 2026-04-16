@@ -120,8 +120,12 @@
             ease: "expo.inOut",
             onComplete: () => {
                 preloader.style.display = 'none';
+                preloader.style.zIndex = '-1'; // Hard push to back
                 document.body.classList.remove('js-loading');
                 sessionStorage.setItem('preloader_shown', 'true');
+                
+                // Final safety: ensure everything is visible
+                gsap.set(['header', 'main'], { opacity: 1, visibility: 'visible', pointerEvents: 'all' });
             }
         }, "-=0.2")
         // Reveal site content
