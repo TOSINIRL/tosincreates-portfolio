@@ -87,14 +87,8 @@
         
         if (!preloader) return;
 
-        // Skip if shown this session
-        if (sessionStorage.getItem('preloader_shown') === 'true') {
-            preloader.style.display = 'none';
-            gsap.set(['header', 'main'], { opacity: 1, y: 0 });
-            gsap.set('.watermark-text', { opacity: 1, y: 0 });
-            return;
-        }
-
+        // Force preloader every time for verification (removed sessionStorage check)
+        
         document.body.classList.add('js-loading');
         const tl = gsap.timeline();
         let progressVal = { value: 0 };
