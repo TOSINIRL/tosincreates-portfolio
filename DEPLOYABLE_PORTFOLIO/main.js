@@ -113,6 +113,8 @@
             duration: 1.5,
             ease: "power2.in"
         }, "-=1.5")
+        // Pause for impact at 100%
+        .to({}, { duration: 0.8 }) 
         // Dismiss Preloader
         .to(preloader, {
             clipPath: 'circle(0% at 50% 50%)',
@@ -120,14 +122,12 @@
             ease: "expo.inOut",
             onComplete: () => {
                 preloader.style.display = 'none';
-                preloader.style.zIndex = '-1'; // Hard push to back
+                preloader.style.zIndex = '-1'; 
                 document.body.classList.remove('js-loading');
                 sessionStorage.setItem('preloader_shown', 'true');
-                
-                // Final safety: ensure everything is visible
                 gsap.set(['header', 'main'], { opacity: 1, visibility: 'visible', pointerEvents: 'all' });
             }
-        }, "-=0.2")
+        })
         // Reveal site content
         .to(['header', 'main'], {
             opacity: 1,
