@@ -1679,12 +1679,29 @@ a {
     -webkit-text-stroke: 1px rgba(255, 51, 51, 0.15);
 }
 
-/* YouTube Grid Layout */
-.yt-grid-layout {
+
+/* Video Preview Grid */
+.video-preview-grid {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .video-preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.video-card.featured-full {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card.featured-full .thumbnail {
+    aspect-ratio: 16/9;
 }
 
 .yt-sidebar {
