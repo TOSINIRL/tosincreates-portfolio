@@ -2439,8 +2439,9 @@ body::after {
     }
     
     .time-value {
-        font-size: 1.8rem !important;
+        font-size: 1.5rem !important;
         line-height: 1.1 !important;
+        white-space: nowrap !important;
     }
     
     .time-divider {
