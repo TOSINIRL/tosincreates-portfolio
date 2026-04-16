@@ -2509,15 +2509,14 @@ body::after {
         width: 100%;
     }
 
-    /* Metric & System Cards (DEFINITIVE UNIFORM SIZE) */
     .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap {
-        padding: 40px 25px !important;
+        padding: 30px 20px !important;
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 480px !important; /* Unified target height */
+        min-height: 420px !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
         border-radius: 32px !important;
         border: 1px solid var(--border-color) !important;
         background: var(--card-bg) !important;
@@ -2525,9 +2524,24 @@ body::after {
         box-sizing: border-box !important;
         overflow: hidden !important;
     }
+
+    .hero-video-wrap {
+        min-height: auto !important;
+        padding-bottom: 30px !important;
+    }
     
-    .sidebar-card, .hero-video-wrap {
-        min-height: 480px !important;
+    .featured-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+        margin-top: 20px !important;
+    }
+
+    .featured-actions .btn, .featured-actions .btn-yt-subscribe {
+        width: 100% !important;
+        margin: 0 !important;
+        justify-content: center !important;
     }
 
     .spec-list {
