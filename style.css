@@ -216,13 +216,61 @@ body::before {
 
 .status-time {
     color: #fff;
-    min-width: 75px;
+    min-width: 90px;
 }
 
 @media (max-width: 850px) {
     .header-status {
         display: none;
     }
+}
+
+.profile-pill {
+    background: var(--pill-bg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.profile-pill:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--accent-red);
+    box-shadow: 0 10px 30px rgba(212, 11, 11, 0.2);
+    background: rgba(212, 11, 11, 0.05);
+}
+
+.profile-pill i {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.profile-pill:hover i {
+    color: var(--accent-red);
+}
+
+.pill-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pill-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.pill-desc {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
 }
 
 /* Hero System Clock */
@@ -268,6 +316,7 @@ body::before {
     letter-spacing: -2px;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     margin: 10px 0;
+    white-space: nowrap;
 }
 
 .clock-status {
