@@ -101,8 +101,9 @@
             onUpdate: () => {
                 const rounded = Math.floor(progressVal.value);
                 if (loadCount) {
-                    loadCount.textContent = rounded < 10 ? `0${rounded}` : rounded;
-                    // Add glitch effect at 99%
+                    loadCount.textContent = rounded;
+                    // Mob Intensity Transitions
+                    if (rounded >= 90) preloader.classList.add('mob-intensity-high');
                     if (rounded >= 99) loadCount.classList.add('glitch');
                 }
             }

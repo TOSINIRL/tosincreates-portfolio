@@ -25,41 +25,45 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .mob-container {
     position: relative;
     text-align: center;
+    width: 100%;
 }
 
 .mob-counter {
-    font-size: clamp(8rem, 25vw, 15rem);
-    font-weight: 900;
-    line-height: 1;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: -5px;
-    margin-bottom: 20px;
+    font-size: clamp(8rem, 35vw, 25rem);
+    font-weight: 400;
+    line-height: 0.8;
+    color: #ff3e3e; /* Intense Mob Red */
+    font-family: 'Anton', sans-serif;
+    letter-spacing: -2px;
+    margin-bottom: 0;
     display: flex;
     align-items: baseline;
     justify-content: center;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 40px rgba(255, 62, 62, 0.3);
+    will-change: transform, opacity;
 }
 
 .mob-percent {
-    font-size: 0.3em;
-    margin-left: 10px;
-    color: var(--accent-red);
+    font-size: 0.25em;
+    margin-left: 5px;
+    color: #ff3e3e;
 }
 
 .mob-status {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: #ff3e3e;
     text-transform: uppercase;
-    margin-top: -20px;
+    margin-top: 20px;
+    opacity: 0.6;
 }
 
 .shigeo-aura {
@@ -67,48 +71,21 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255, 51, 51, 0.1) 0%, transparent 70%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 62, 62, 0.2) 0%, transparent 70%);
     z-index: -1;
     opacity: 0;
 }
 
-/* Glitch Effect for High Intensity */
-.glitch {
-    position: relative;
+/* Jitter / Shake for High Intensity */
+.mob-intensity-high .mob-counter {
+    animation: mob-jitter 0.08s infinite alternate;
 }
 
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-}
-
-.glitch::before {
-    color: #0ff;
-    z-index: -1;
-    animation: glitch-anim 0.3s infinite;
-}
-
-.glitch::after {
-    color: #f0f;
-    z-index: -2;
-    animation: glitch-anim 0.3s infinite reverse;
-}
-
-@keyframes glitch-anim {
-    0% { transform: translate(0); }
-    20% { transform: translate(-5px, 5px); }
-    40% { transform: translate(-5px, -5px); }
-    60% { transform: translate(5px, 5px); }
-    80% { transform: translate(5px, -5px); }
-    100% { transform: translate(0); }
+@keyframes mob-jitter {
+    0% { transform: translate(2px, 2px) scale(1.02); }
+    100% { transform: translate(-2px, -2px) scale(0.98); }
 }
 
 /* Hide main content initially for reveal */
