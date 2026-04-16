@@ -2491,28 +2491,25 @@ body::after {
         width: 100%;
     }
 
-    /* Metric & System Cards (Force Uniform Dashboard Footprint) */
+    /* Metric & System Cards (DEFINITIVE UNIFORM SIZE) */
     .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap {
-        padding: 35px 25px !important;
+        padding: 40px 25px !important;
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 450px !important;
+        min-height: 480px !important; /* Unified target height */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
+        justify-content: space-between !important;
         border-radius: 32px !important;
         border: 1px solid var(--border-color) !important;
         background: var(--card-bg) !important;
-        margin-bottom: 25px !important;
+        margin: 0 0 25px 0 !important;
+        box-sizing: border-box !important;
         overflow: hidden !important;
     }
     
-    .sidebar-card {
-        min-height: 450px !important;
-    }
-    
-    .hero-video-wrap {
-        min-height: auto !important;
+    .sidebar-card, .hero-video-wrap {
+        min-height: 480px !important;
     }
 
     .spec-list {
@@ -2520,7 +2517,16 @@ body::after {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 15px !important;
+        gap: 12px !important;
+        margin: 0 !important;
+    }
+    
+    .clock-display {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 !important;
     }
 
     /* Video Title Consistency */
