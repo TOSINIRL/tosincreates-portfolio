@@ -2433,9 +2433,13 @@ body::after {
 
     /* Metric & System Cards (Screenshot 3) */
     .system-card, .metrics-card, .about-card, .dashboard-card {
-        padding: 20px !important;
+        padding: 30px 20px !important;
         width: 100% !important;
         max-width: 100% !important;
+        border-radius: 32px !important;
+        border: 1px solid var(--border-color) !important;
+        background: var(--card-bg) !important;
+        margin-bottom: 20px !important;
         overflow: hidden !important;
     }
     
@@ -2487,41 +2491,36 @@ body::after {
         width: 100%;
     }
 
-    .social-pills {
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.8rem !important;
-    }
-
-    .clock-time {
-        font-size: 2.2rem !important;
-    }
-
-    .logo {
-        font-size: 1rem !important;
-    }
-
-    .about-card {
-        border-radius: 16px !important;
-    }
-
-    .about-inner {
+    /* Metric & System Cards (Matching Aura Sync style) */
+    .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap {
         padding: 30px 20px !important;
-    }
-
-    .about-heading {
-        font-size: 2rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 32px !important;
+        border: 1px solid var(--border-color) !important;
+        background: var(--card-bg) !important;
+        margin-bottom: 20px !important;
+        overflow: hidden !important;
     }
     
-    .footer-inner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    .sidebar-card {
+        min-height: auto !important;
     }
-}
+    
+    .spec-list {
+        gap: 15px !important;
+        margin-top: 20px !important;
+    }
+
+    /* Video Title Consistency */
+    .video-title-large {
+        font-size: 1.3rem !important;
+        line-height: 1.2 !important;
+        margin: 15px 0 !important;
+        font-weight: 900 !important;
+        text-transform: uppercase !important;
+    }
+    
+    .featured-content {
+        padding: 20px 0 0 0 !important;
+    }
