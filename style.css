@@ -2538,23 +2538,21 @@ body::after {
         margin: 5px 0;
     }
 
-    /* Final Nuclear Fix for All Cards */
+    /* Final Nuclear Fix for All Cards - Now capped to be smaller and synchronized */
     .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap, .video-card, .contact-card, .mission-card {
         padding: 24px !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: 320px !important; /* Cap width to make them feel 'smaller' as requested */
         min-height: auto !important;
         display: flex !important;
         flex-direction: column !important;
         border-radius: 32px !important;
         border: 1px solid var(--border-color) !important;
         background: var(--card-bg) !important;
-        margin: 0 0 20px 0 !important;
+        margin: 0 auto 20px auto !important; /* auto margins to center the capped cards */
         box-sizing: border-box !important;
         overflow: hidden !important;
         position: relative !important;
-        left: 0 !important;
-        right: 0 !important;
     }
 
     .video-preview-grid, .project-grid, .ecosystem-grid, .missions-grid {
@@ -2563,9 +2561,11 @@ body::after {
         max-width: 100% !important;
         gap: 20px !important;
         padding: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        overflow: hidden !important;
+        margin: 0 auto !important;
+        overflow: visible !important; /* Allow the centered cards to show correctly */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .video-title {
