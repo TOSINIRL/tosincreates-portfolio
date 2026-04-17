@@ -840,12 +840,13 @@ a {
 }
 
 .about-heading {
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 8vw, 3.2rem);
     font-weight: 900;
-    line-height: 0.95;
+    line-height: 1.1;
     margin-bottom: 0;
-    letter-spacing: -3px;
+    letter-spacing: -1px;
     text-transform: uppercase;
+    overflow-wrap: break-word;
 }
 
 .about-heading-highlight {
@@ -1617,12 +1618,12 @@ a {
 
 .yt-banner-specs {
     position: absolute;
-    left: 40px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     z-index: 5;
 }
 
@@ -1665,7 +1666,7 @@ a {
     margin-top: 30px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .video-preview-grid {
         grid-template-columns: 1fr;
     }
@@ -1888,12 +1889,13 @@ a {
 .yt-channel-stats {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 15px;
     margin-top: 15px;
     background: rgba(255, 255, 255, 0.03);
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -1954,18 +1956,18 @@ a {
 .video-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
-    width: 472px !important; /* EXACT strict width from screenshot */
-    max-width: 100%; /* allows shrinking on mobile phones */
+    width: 100%;
     margin: 0 auto;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .video-card .thumbnail {
     position: relative;
     width: 100%;
-    height: 265px !important; /* EXACT height to lock the 16:9 ratio */
+    aspect-ratio: 16/9;
     background: #000;
 }
 
@@ -2004,25 +2006,7 @@ a {
 
 .volume-control.on { background: var(--accent-red); }
 
-.featured-full {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    border: 1px solid rgba(255,51,51,0.2) !important;
-    max-width: 900px; /* Constrain size */
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.long-form-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+/* Removing redundant/conflicting rules */
 
 @media (max-width: 768px) {
     .featured-full { flex-direction: column; }
@@ -2341,6 +2325,7 @@ body::after {
 .yt-tab-content {
     position: relative;
     padding-bottom: 2rem;
+    overflow: hidden; /* Prevent THE_VAULT text from causing horizontal scroll */
 }
 
 .yt-tab-content::after {
@@ -2553,16 +2538,37 @@ body::after {
         margin: 5px 0;
     }
 
-    /* Metric & System Cards (Screenshot 3) */
-    .system-card, .metrics-card, .about-card, .dashboard-card {
-        padding: 30px 20px !important;
+    /* Clean Card System for Mobile - Standardized to match Project Cards */
+    .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap, .video-card, .contact-card {
+        padding: 24px !important; /* Standard padding */
         width: 100% !important;
         max-width: 100% !important;
-        border-radius: 32px !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        border-radius: 32px !important; /* Matching project card smoothness */
         border: 1px solid var(--border-color) !important;
         background: var(--card-bg) !important;
-        margin-bottom: 20px !important;
+        margin: 0 auto 15px auto !important;
+        box-sizing: border-box !important;
         overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    }
+
+    .video-title {
+        font-size: 1.1rem !important;
+        line-height: 1.2 !important;
+        margin: 10px 0 !important;
+        white-space: normal !important; /* Allow wrapping */
+        word-break: break-word !important;
+        text-align: left;
+    }
+
+    .featured-label {
+        font-size: 0.65rem !important;
+        opacity: 0.6;
+        letter-spacing: 1px;
     }
     
     .skill-bars {
@@ -2613,20 +2619,27 @@ body::after {
         width: 100%;
     }
 
-    .system-card, .metrics-card, .about-card, .dashboard-card, .hero-video-wrap {
-        padding: 30px 20px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 420px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        border-radius: 32px !important;
-        border: 1px solid var(--border-color) !important;
-        background: var(--card-bg) !important;
-        margin: 0 0 25px 0 !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
+    .about-orb {
+        display: none !important;
+    }
+
+    .about-inner {
+        padding: 0 !important;
+        gap: 15px !important;
+    }
+
+    .about-orb {
+        display: none !important; /* Remove potentially overlapping orbs on small screens */
+    }
+
+    .about-inner {
+        padding: 0 !important;
+        gap: 15px !important;
+    }
+
+    .video-preview-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 
     .hero-video-wrap {
