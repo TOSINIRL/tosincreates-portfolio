@@ -1166,15 +1166,8 @@ a {
 .dashboard-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 32px; /* Smoother rounded corners like the image */
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    aspect-ratio: 4 / 3; /* 4:3 Aspect Ratio */
+    border-radius: 40px; /* Enhanced rounding to match square reference */
+    aspect-ratio: 1 / 1; /* Locked 1:1 Square */
 }
 
 .dashboard-card:hover {
@@ -1683,7 +1676,8 @@ a {
 }
 
 .video-card.featured-full .thumbnail {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
+    border-radius: 40px;
 }
 
 .yt-sidebar {
@@ -1976,9 +1970,9 @@ a {
 .video-card .thumbnail {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     background: #000;
-    border-radius: 16px;
+    border-radius: 40px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
