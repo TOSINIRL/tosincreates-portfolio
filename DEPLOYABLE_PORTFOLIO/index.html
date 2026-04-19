@@ -32,6 +32,10 @@
 
     <div class="noise-overlay"></div>
     
+    <!-- Custom Ghost Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
     <!-- Pro-Dashboard Header (Based on Screenshot) -->
     <header class="dashboard-header">
         <div class="header-left">
@@ -584,6 +588,24 @@
                     </ul>
                 </div>
 
+            <div class="footer-bottom-grid">
+                <!-- Agentic Log Hub -->
+                <div class="system-card terminal-card footer-terminal">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <i class="fas fa-terminal"></i>
+                            <span class="card-title">SYS_AGENT_LOG</span>
+                        </div>
+                        <div class="header-right">
+                            <span class="status-pulse"></span>
+                            <span class="status-text">LIVE_SYNC</span>
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="agenticLog">
+                        <!-- Logs inject here -->
+                    </div>
+                </div>
+
                 <div class="footer-col status-col">
                     <h4 class="footer-title">System Status</h4>
                     <div class="footer-status-item">
@@ -594,9 +616,10 @@
                         <i class="fas fa-shield-alt"></i>
                         <span>ENCRYPTED_SESSION_ACTIVE</span>
                     </div>
-                    <p class="footer-version">BUILD_VER: 206.6.5-RELOADED</p>
+                    <p class="footer-version">BUILD_VER: 206.6.6-ELITE</p>
                     <p class="copyright">© 2026 TOSIN CREATES.</p>
                 </div>
+            </div>
             </div>
         </div>
     </footer>

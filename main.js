@@ -3,6 +3,8 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const themeDot = document.querySelector('.theme-dot');
+    const cursorInner = document.querySelector('.cursor-inner');
+    const cursorOuter = document.querySelector('.cursor-outer');
 
     // Robust Initialization
     const initTheme = () => {
@@ -628,11 +630,62 @@
         });
     }
 
+    // 5. CUSTOM GHOST CURSOR
+    const initCursor = () => {
+        if (!cursorInner || !cursorOuter) return;
+
+        let mouseX = 0, mouseY = 0;
+        let outerX = 0, outerY = 0;
+
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Inner follows exactly
+            gsap.to(cursorInner, {
+                x: mouseX,
+                y: mouseY,
+                duration: 0.1,
+                opacity: 1
+            });
+            
+            gsap.to(cursorOuter, { opacity: 1, duration: 0.5 });
+        });
+
+        // Smooth outer follow
+        const render = () => {
+            outerX += (mouseX - outerX) * 0.15;
+            outerY += (mouseY - outerY) * 0.15;
+            
+            gsap.set(cursorOuter, {
+                x: outerX,
+                y: outerY
+            });
+            
+            requestAnimationFrame(render);
+        };
+        render();
+
+        // Hover states
+        const targets = document.querySelectorAll('a, button, .video-card, .project-card, .theme-switch');
+        targets.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(cursorOuter, { width: 60, height: 60, duration: 0.3 });
+                gsap.to(cursorInner, { scale: 2, backgroundColor: '#fff', duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(cursorOuter, { width: 35, height: 35, duration: 0.3 });
+                gsap.to(cursorInner, { scale: 1, backgroundColor: 'var(--accent-red)', duration: 0.3 });
+            });
+        });
+    };
+
     // Ensure GSAP plugins are ready
     setTimeout(() => {
         initEffects();
         initViewToggle();
         initEcosystem();
+        initCursor();
     }, 500);
 
 })();
