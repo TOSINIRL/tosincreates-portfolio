@@ -680,49 +680,12 @@
         });
     };
 
-    // 6. TEXT SCRAMBLE EFFECT
-    const initScramble = () => {
-        const chars = '!<>-_\\/[]{}—=+*^?#________';
-        const headings = document.querySelectorAll('.about-heading, .contact-heading, .section-title, .yt-channel-name');
-
-        headings.forEach(heading => {
-            const originalText = heading.innerText;
-            let iteration = 0;
-            let interval = null;
-
-            heading.addEventListener('mouseenter', () => {
-                clearInterval(interval);
-                interval = setInterval(() => {
-                    heading.innerText = originalText
-                        .split("")
-                        .map((char, index) => {
-                            if (index < iteration) return originalText[index];
-                            return chars[Math.floor(Math.random() * chars.length)];
-                        })
-                        .join("");
-
-                    if (iteration >= originalText.length) {
-                        clearInterval(interval);
-                    }
-                    iteration += 1 / 3;
-                }, 30);
-            });
-
-            heading.addEventListener('mouseleave', () => {
-                clearInterval(interval);
-                iteration = 0;
-                heading.innerText = originalText;
-            });
-        });
-    };
-
     // Ensure GSAP plugins are ready
     setTimeout(() => {
         initEffects();
         initViewToggle();
         initEcosystem();
         initCursor();
-        initScramble();
     }, 500);
 
 })();
