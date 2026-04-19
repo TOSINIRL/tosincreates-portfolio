@@ -1156,11 +1156,12 @@ a {
 }
 
 .video-preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     margin-top: 3rem;
 }
+
 
 
 .dashboard-card {
@@ -1670,15 +1671,22 @@ a {
 }
 
 .video-card.featured-full {
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 32px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
 }
 
 .video-card.featured-full .thumbnail {
-    aspect-ratio: 1 / 1;
-    border-radius: 40px;
+    flex: 0 0 55%;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
 }
+
 
 .yt-sidebar {
     display: flex;
@@ -1970,9 +1978,9 @@ a {
 .video-card .thumbnail {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 9;
     background: #000;
-    border-radius: 40px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
@@ -2665,10 +2673,16 @@ body::after {
         gap: 15px !important;
     }
 
-    .video-preview-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+    .video-card.featured-full {
+        flex-direction: column !important;
+        padding: 12px;
     }
+    
+    .video-card.featured-full .thumbnail {
+        flex: none !important;
+        width: 100% !important;
+    }
+
 
     .hero-video-wrap {
         min-height: auto !important;
