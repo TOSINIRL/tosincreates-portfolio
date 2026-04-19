@@ -230,10 +230,46 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.1;
-    z-index: 9999;
+    opacity: 0.05;
     pointer-events: none;
-    mix-blend-mode: overlay;
+    z-index: 9998;
+}
+
+/* Scanline Effect */
+.system-card::after, .video-card::after, .project-card::after, .dashboard-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(255, 255, 255, 0.02) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+}
+
+@keyframes scanlineMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(100%); }
+}
+
+.system-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 51, 51, 0.05), transparent);
+    animation: scanlineMove 8s linear infinite;
+    pointer-events: none;
+    z-index: 3;
 }
 
 
