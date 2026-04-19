@@ -42,7 +42,10 @@
 
 .project-grid.list-view .project-card:hover {
     transform: none !important;
+    border-color: var(--border-color) !important;
+    box-shadow: none !important;
 }
+
 
 
 /* Footer Terminal */
