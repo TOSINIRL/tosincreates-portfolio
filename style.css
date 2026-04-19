@@ -1156,11 +1156,15 @@ a {
 }
 
 .video-preview-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 
 
@@ -1672,20 +1676,25 @@ a {
 
 .video-card.featured-full {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 32px;
-    padding: 20px;
+    border-radius: 24px;
+    padding: 0;
     border: 1px solid var(--border-color);
+    overflow: hidden;
+    height: auto;
 }
 
 .video-card.featured-full .thumbnail {
-    flex: 0 0 55%;
+    width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 20px;
+    border-radius: 24px 24px 0 0;
 }
+
+.video-card.featured-full .video-content {
+    padding: 20px;
+}
+
 
 
 .yt-sidebar {
@@ -2673,15 +2682,15 @@ body::after {
         gap: 15px !important;
     }
 
-    .video-card.featured-full {
-        flex-direction: column !important;
-        padding: 12px;
+    .video-preview-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
     }
     
-    .video-card.featured-full .thumbnail {
-        flex: none !important;
-        width: 100% !important;
+    .video-card.featured-full {
+        padding: 0 !important;
     }
+
 
 
     .hero-video-wrap {
