@@ -34,6 +34,17 @@
     transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.02);
 }
 
+/* Disable effects in List View */
+.project-grid.list-view .project-card::after,
+.project-grid.list-view .project-card::before {
+    display: none !important;
+}
+
+.project-grid.list-view .project-card:hover {
+    transform: none !important;
+}
+
+
 /* Footer Terminal */
 .footer-bottom-grid {
     display: grid;
