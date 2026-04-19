@@ -1387,9 +1387,11 @@ a {
     color: var(--text-primary);
 }
 
-.project-grid.list-view .card-overlay {
-    display: none; /* Hide overlay badges in list view for cleaner look */
+.project-grid.list-view .card-info p,
+.project-grid.list-view .card-category {
+    display: none !important;
 }
+
 
 @media (max-width: 768px) {
     .project-grid.list-view .dashboard-card {
