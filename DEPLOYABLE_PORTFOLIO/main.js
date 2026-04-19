@@ -579,27 +579,39 @@
         });
     };
 
-    // 0. SYSTEM CLOCK
+    // 0. SYSTEM CLOCK & GLOBAL NODES
     const updateClock = () => {
-        const clock = document.getElementById('localTime');
         const headerClock = document.getElementById('headerTime');
         const heroClock = document.getElementById('heroClock');
+        const ldnClock = document.getElementById('clockLDN');
+        const tkyClock = document.getElementById('clockTKY');
+        const yyzClock = document.getElementById('clockYYZ');
         
         const now = new Date();
-        let hours = now.getHours();
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        const ampm = hours >= 12 ? 'PM' : 'AM';
         
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-        const hoursStr = String(hours).padStart(2, '0');
-        
-        const timeStr = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+        // Helper for formatted time
+        const getFormattedTime = (date, timezoneOffset) => {
+            // Adjust for timezone
+            const localDate = new Date(date.toLocaleString('en-US', { timeZone: timezoneOffset }));
+            let h = localDate.getHours();
+            const m = String(localDate.getMinutes()).padStart(2, '0');
+            const s = String(localDate.getSeconds()).padStart(2, '0');
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return `${String(h).padStart(2, '0')}:${m}:${s} ${ampm}`;
+        };
 
-        if (clock) clock.textContent = timeStr;
+        // Toronto (Local)
+        const timeStr = getFormattedTime(now, 'America/Toronto');
         if (headerClock) headerClock.textContent = timeStr;
         if (heroClock) heroClock.textContent = timeStr;
+        if (yyzClock) yyzClock.textContent = timeStr;
+
+        // London
+        if (ldnClock) ldnClock.textContent = getFormattedTime(now, 'Europe/London');
+        
+        // Tokyo
+        if (tkyClock) tkyClock.textContent = getFormattedTime(now, 'Asia/Tokyo');
 
         setTimeout(updateClock, 1000);
     };

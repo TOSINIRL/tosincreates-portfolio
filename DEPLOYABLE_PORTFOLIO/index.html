@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tosin Creates | Creative Web Development & Designer</title>
     <link rel="icon" type="image/png" href="assets/images/tc_media_hub_logo.png?v=22">
     <link rel="shortcut icon" href="assets/images/tc_media_hub_logo.png?v=22">
     <link rel="apple-touch-icon" href="assets/images/tc_media_hub_logo.png?v=23">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=205.9">
+    <link rel="stylesheet" href="style.css?v=206.3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -289,16 +289,6 @@
                 </div>
         <!-- Metrics Removed -->
 
-        <!-- Signal Bridge: Visual Filler -->
-        <div class="signal-bridge">
-            <div class="container">
-                <div class="bridge-lines">
-                    <span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span>
-                </div>
-            </div>
-        </div>
 
         <!-- YouTube Content Hub -->
         <section class="hub" id="socials">
@@ -436,25 +426,200 @@
             </div>
         </section>
 
+ 
+        <!-- System Infrastructure: The Support Layer -->
+        <section class="system-infra">
+            <div class="container">
+                <div class="infra-grid">
+                    <!-- Node 1: Terminal Status -->
+                    <div class="infra-card">
+                        <div class="infra-header">
+                            <span class="infra-label">UPLINK_STATUS</span>
+                            <div class="status-indicator">
+                                <div class="status-pulse green"></div>
+                                <span class="pulse-text">STABLE</span>
+                            </div>
+                        </div>
+                        <div class="infra-body">
+                            <div class="infra-stat">
+                                <span class="stat-key">LATENCY</span>
+                                <span class="stat-value">12ms</span>
+                            </div>
+                            <div class="infra-stat">
+                                <span class="stat-key">UPTIME</span>
+                                <span class="stat-value">99.9%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Node 2: Global Clocks -->
+                    <div class="infra-card">
+                        <div class="infra-header">
+                            <span class="infra-label">GLOBAL_NODES</span>
+                        </div>
+                        <div class="infra-body nodes">
+                            <div class="node-item">
+                                <span class="node-loc">LONDON</span>
+                                <span class="node-time" id="clockLDN">00:00:00</span>
+                            </div>
+                            <div class="node-item">
+                                <span class="node-loc">TOKYO</span>
+                                <span class="node-time" id="clockTKY">00:00:00</span>
+                            </div>
+                            <div class="node-item">
+                                <span class="node-loc">TORONTO</span>
+                                <span class="node-time" id="clockYYZ">00:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Node 3: Tech Stack -->
+                    <div class="infra-card stack-card">
+                        <div class="infra-header">
+                            <span class="infra-label">CORE_MANIFEST</span>
+                        </div>
+                        <div class="stack-icons">
+                            <i class="fab fa-js" title="JavaScript"></i>
+                            <i class="fab fa-react" title="Next.js"></i>
+                            <i class="fab fa-html5" title="HTML5"></i>
+                            <i class="fab fa-css3-alt" title="CSS3"></i>
+                            <i class="fas fa-brain" title="Agentic AI"></i>
+                        </div>
+                        <div class="stack-text">AGENTIC_V2_CORE</div>
+                    </div>
+                </div>
+            </div>
+        <!-- Global Mission Matrix: The Operational Map -->
+        <section class="mission-matrix">
+            <div class="container">
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <div class="matrix-title-wrap">
+                            <span class="about-eyebrow">Global Reach</span>
+                            <h2 class="matrix-title">Operational <span class="about-heading-highlight">Matrix</span></h2>
+                        </div>
+                        <div class="matrix-stats">
+                            <div class="m-stat">
+                                <span class="m-val">06</span>
+                                <span class="m-lbl">ACTIVE_NODES</span>
+                            </div>
+                            <div class="m-stat">
+                                <span class="m-val">24/7</span>
+                                <span class="m-lbl">MONITORING</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="matrix-map-wrapper">
+                        <img src="assets/images/global_mission_map.png" alt="Global Mission Map" class="matrix-map">
+                        <div class="map-overlay"></div>
+                        
+                        <!-- Pulsing Points (CSS Overlays on the image) -->
+                        <div class="map-point toronto" style="top: 35%; left: 24%;"></div>
+                        <div class="map-point london" style="top: 28%; left: 47%;"></div>
+                        <div class="map-point tokyo" style="top: 38%; left: 85%;"></div>
+                        <div class="map-point lagos" style="top: 60%; left: 49%;"></div>
+                        <div class="map-point dubai" style="top: 48%; left: 62%;"></div>
+                    </div>
+                    <div class="matrix-footer">
+                        <div class="matrix-log">
+                            <span class="log-prefix">SYS_MSG:</span>
+                            <span class="log-text">Global Uplink Synchronized. All nodes reporting nominal status.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Status Bar: The Metadata Bridge -->
+        <div class="terminal-status-bar">
+            <div class="container">
+                <div class="status-bar-inner">
+                    <div class="status-item"><span class="s-label">ENGINE:</span> <span class="s-value">AGENTIC_V3.0</span></div>
+                    <div class="status-item"><span class="s-label">LATENCY:</span> <span class="s-value">14ms</span></div>
+                    <div class="status-item"><span class="s-label">CACHE:</span> <span class="s-value">UPLINK_ARMED</span></div>
+                    <div class="status-item"><span class="s-label">SSL:</span> <span class="s-value">SECURED_2048</span></div>
+                    <div class="status-item"><span class="s-label">ENV:</span> <span class="s-value">PROD_STABLE</span></div>
+                    <div class="status-item"><span class="s-label">RELIABILITY:</span> <span class="s-value">99.99%</span></div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer class="dashboard-footer">
         <div class="container">
-            <div class="footer-inner">
-                <div class="footer-left">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
                     <div class="logo">TOSIN<span>CREATES</span></div>
-                    <p>© 2026. All Rights Reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="status-badge">
-                        <div class="status-pulse"></div>
-                        <span>SYSTEMS_OPERATIONAL // VER: 205.9</span>
+                    <p class="brand-tagline">Bespoke luxury web design & premium digital experiences built with 2026-grade AI technology.</p>
+                    <div class="footer-socials">
+                        <a href="https://youtube.com/@tosinirl" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/tosinirl" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://discord.gg/tosinirl" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="https://linkedin.com/in/tosinshittu" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#socials">Channel</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-title">Ecosystem</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Agentic Logs</a></li>
+                        <li><a href="#">System Specs</a></li>
+                        <li><a href="#">Design Ethics</a></li>
+                        <li><a href="#">Legal Uplink</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col status-col">
+                    <h4 class="footer-title">System Status</h4>
+                    <div class="footer-status-item">
+                        <div class="status-pulse"></div>
+                        <span>ALL_SYSTEMS_OPERATIONAL</span>
+                    </div>
+                    <div class="footer-status-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ENCRYPTED_SESSION_ACTIVE</span>
+                    </div>
+                    <p class="footer-version">BUILD_VER: 206.5.9</p>
+                    <p class="copyright">© 2026 TOSIN CREATES.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="main.js?v=205.9"></script>
+    <!-- Signal Bridge Ticker: The Final Anchor -->
+    <div class="signal-bridge-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-content">
+                <span class="ticker-item"><span class="signal-dot"></span> SYS_CORE_V2.06.5</span>
+                <span class="ticker-item"><span class="signal-dot"></span> UPLINK_STABLE</span>
+                <span class="ticker-item"><span class="signal-dot"></span> ENCRYPTION_ACTIVE</span>
+                <span class="ticker-item"><span class="signal-dot"></span> AGENTIC_SYNC_100%</span>
+                <span class="ticker-item"><span class="signal-dot"></span> RENDER_ENGINE_LUXURY_V2</span>
+                <span class="ticker-item"><span class="signal-dot"></span> DATA_STREAMING_NOMINAL</span>
+                <!-- Duplicate for infinite scroll -->
+                <span class="ticker-item"><span class="signal-dot"></span> SYS_CORE_V2.06.5</span>
+                <span class="ticker-item"><span class="signal-dot"></span> UPLINK_STABLE</span>
+                <span class="ticker-item"><span class="signal-dot"></span> ENCRYPTION_ACTIVE</span>
+                <span class="ticker-item"><span class="signal-dot"></span> AGENTIC_SYNC_100%</span>
+                <span class="ticker-item"><span class="signal-dot"></span> RENDER_ENGINE_LUXURY_V2</span>
+                <span class="ticker-item"><span class="signal-dot"></span> DATA_STREAMING_NOMINAL</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="main.js?v=206.1"></script>
 </body>
 </html>
