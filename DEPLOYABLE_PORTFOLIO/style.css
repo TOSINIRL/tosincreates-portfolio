@@ -990,17 +990,7 @@ a {
     font-weight: 600;
 }
 
-/* Glow orb element */
-.about-orb {
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 51, 51, 0.08) 0%, transparent 70%);
-    z-index: 1;
-    pointer-events: none;
-}
+
 
 /* Ecosystem Grid */
 .ecosystem-grid {
@@ -1155,10 +1145,7 @@ a {
     to { transform: translateX(-50%); }
 }
 
-/* Logic Orb Animation */
-#logicOrb {
-    transition: transform 0.1s ease-out;
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 868px) {
@@ -2788,18 +2775,7 @@ body::after {
         width: 100%;
     }
 
-    .about-orb {
-        display: none !important;
-    }
 
-    .about-inner {
-        padding: 0 !important;
-        gap: 15px !important;
-    }
-
-    .about-orb {
-        display: none !important; /* Remove potentially overlapping orbs on small screens */
-    }
 
     .about-inner {
         padding: 0 !important;

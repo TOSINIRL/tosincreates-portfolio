@@ -254,7 +254,7 @@
 
         // Configuration
         const CONFIG = {
-            discordInvite: 'CVVjUz86S9',
+            discordInvite: 'vW7DnNsf74',
             youtubeChannelId: 'UCck1kagNTkAlriBIRE8NPog',
             youtubeApiKey: 'AIzaSyDI7ia--llieRsL_TaPVw5p0A1-B9UdHrE',
             refreshInterval: 60000 // 1 minute
@@ -524,20 +524,7 @@
         };
         addLog();
 
-        // Interactive Logic Orb
-        const orb = document.getElementById('logicOrb');
-        if (orb) {
-            document.addEventListener('mousemove', (e) => {
-                const x = (e.clientX - window.innerWidth / 2) / 25;
-                const y = (e.clientY - window.innerHeight / 2) / 25;
-                gsap.to(orb, {
-                    x: x,
-                    y: y,
-                    duration: 1.2,
-                    ease: "power2.out"
-                });
-            });
-        }
+
 
         // Magnetic Social Buttons (Pills and Hero Quick Links)
         const socialPills = document.querySelectorAll('.social-pill, .hero-social-quick a');
