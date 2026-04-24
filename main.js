@@ -365,43 +365,56 @@
         });
     };
 
-    // --- Effects ---
+    // 3. SLEEK REVEAL EFFECTS
     const initEffects = () => {
         initSocialStats();
 
-        if (document.querySelector('.mission-reveal')) {
-            gsap.from('.mission-reveal', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: '.mission-reveal',
-                    start: 'top 85%'
-                }
-            });
-        }
-
-        // Hero Watermark Parallax
-        gsap.to('.hero-watermark', {
-            y: 100,
+        // 3.1 About Section: Sophisticated Reveal
+        const aboutTl = gsap.timeline({
             scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
+                trigger: '.about',
+                start: 'top 75%',
+                toggleActions: "play none none reverse"
             }
         });
 
-        // Case Studies Grid Reveal
+        // Split text reveal simulation (using clip-path)
+        aboutTl.from('.about-heading', {
+            clipPath: 'inset(0 100% 0 0)',
+            x: -30,
+            duration: 1.2,
+            ease: "expo.out"
+        })
+        .from('.about-para', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            ease: "power3.out"
+        }, "-=0.8")
+        .from('.system-card', {
+            opacity: 0,
+            y: 40,
+            scale: 0.98,
+            duration: 1,
+            stagger: 0.2,
+            ease: "back.out(1.2)"
+        }, "-=0.6");
+
+        // 3.2 Project Grid: Premium Staggered Entry
         const projectCards = gsap.utils.toArray('.project-card');
         if (projectCards.length > 0) {
             gsap.from(projectCards, {
                 opacity: 0,
-                y: 60,
-                scale: 0.95,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'back.out(1.2)',
+                y: 100,
+                rotateX: -15,
+                scale: 0.9,
+                duration: 1.2,
+                stagger: {
+                    amount: 0.4,
+                    grid: "auto",
+                    from: "start"
+                },
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: '.project-grid',
                     start: 'top 85%',
@@ -410,27 +423,28 @@
             });
         }
 
-        // About Section Reveal
-        const aboutTl = gsap.timeline({
+        // 3.3 Hero Watermark Parallax (Enhanced)
+        gsap.to('.hero-watermark', {
+            y: 150,
+            opacity: 0,
             scrollTrigger: {
-                trigger: '.about',
-                start: 'top 80%',
-                toggleActions: "play none none reverse"
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1
             }
         });
 
-        aboutTl.from('.about-content-left', {
-            x: -50,
-            opacity: 0,
-            duration: 1,
-            ease: "power4.out"
-        })
-        .from('.about-content-right', {
-            x: 50,
-            opacity: 0,
-            duration: 1,
-            ease: "power4.out"
-        }, "-=0.8");
+        // 3.4 Tech Marquee Sync
+        gsap.to('.marquee-content', {
+            xPercent: -50,
+            repeat: -1,
+            duration: 20,
+            ease: "none"
+        });
+
+        // Ensure everything is calculated correctly
+        ScrollTrigger.refresh();
     };
 
     // 3. Grid / List View Toggle Logic
