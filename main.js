@@ -126,6 +126,12 @@
                 document.body.classList.remove('js-loading');
                 sessionStorage.setItem('preloader_shown', 'true');
                 gsap.set(['header', 'main'], { opacity: 1, visibility: 'visible', pointerEvents: 'all' });
+                
+                // Initialize interactions after site is visible
+                initEffects();
+                initViewToggle();
+                initEcosystem();
+                ScrollTrigger.refresh();
             }
         })
         // Reveal site content
@@ -374,7 +380,7 @@
             scrollTrigger: {
                 trigger: '.about',
                 start: 'top 75%',
-                toggleActions: "play none none reverse"
+                toggleActions: "play none none none"
             }
         });
 
@@ -418,7 +424,7 @@
                 scrollTrigger: {
                     trigger: '.project-grid',
                     start: 'top 85%',
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none none"
                 }
             });
         }
@@ -630,11 +636,6 @@
     }
 
 
-    // Ensure GSAP plugins are ready
-    setTimeout(() => {
-        initEffects();
-        initViewToggle();
-        initEcosystem();
-    }, 500);
-
+    // Ensure GSAP plugins are ready and clocks are starting
+    updateClock();
 })();
