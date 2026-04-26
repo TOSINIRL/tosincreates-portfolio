@@ -409,22 +409,21 @@
         // 3.2 Project Grid: Premium Staggered Entry
         const projectCards = gsap.utils.toArray('.project-card');
         if (projectCards.length > 0) {
-            gsap.from(projectCards, {
-                opacity: 0,
-                y: 100,
-                rotateX: -15,
-                scale: 0.9,
-                duration: 1.2,
-                stagger: {
-                    amount: 0.4,
-                    grid: "auto",
-                    from: "start"
-                },
-                ease: 'expo.out',
+            // Set initial state immediately to avoid 'invisible' bug if ScrollTrigger fails
+            gsap.set(projectCards, { opacity: 0, y: 50, scale: 0.95 });
+
+            gsap.to(projectCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: '.project-grid',
-                    start: 'top 85%',
-                    toggleActions: "play none none none"
+                    start: 'top 90%', // Earlier start
+                    once: true // Ensure it stays visible once triggered
                 }
             });
         }
