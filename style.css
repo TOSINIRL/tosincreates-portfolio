@@ -3521,21 +3521,22 @@ body::after {
 
 /* YouTube Hub Specifics */
 .youtube-grid {
-    flex: 2;
+    flex: 2.5;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: start;
-    padding-top: 60px; /* Space for arrows */
+    padding-top: 60px;
+    max-width: 1000px; /* Increased width */
 }
 
 .video-mockup {
     position: relative;
     aspect-ratio: 16 / 9;
-    border-radius: 12px;
+    border-radius: 24px; /* Matches the rounded reference */
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     width: 100%;
     border: 1px solid rgba(255,255,255,0.1);
     display: block;
@@ -3544,9 +3545,9 @@ body::after {
 }
 
 .video-mockup:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(88, 101, 242, 0.25);
-    border-color: rgba(88, 101, 242, 0.4);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(88, 101, 242, 0.35);
+    border-color: rgba(88, 101, 242, 0.5);
 }
 
 .thumb-img {
@@ -3558,7 +3559,7 @@ body::after {
 }
 
 .video-mockup:hover .thumb-img {
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 .play-btn-overlay {
@@ -3566,15 +3567,15 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 0, 0, 0.9);
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 0, 0, 0.95);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+    box-shadow: 0 0 20px rgba(255,0,0,0.4);
     pointer-events: none;
     transition: 0.3s;
     z-index: 2;
@@ -3583,11 +3584,11 @@ body::after {
 .video-mockup:hover .play-btn-overlay {
     background: #ff0000;
     transform: translate(-50%, -50%) scale(1.15);
-    box-shadow: 0 0 30px rgba(255,0,0,0.5);
+    box-shadow: 0 0 40px rgba(255,0,0,0.6);
 }
 
 .play-icon {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
 .click-here {
@@ -3600,20 +3601,20 @@ body::after {
 }
 
 .click-here.arrow-left {
-    top: -40px;
-    left: 15%;
+    top: -50px;
+    left: 10%;
     transform: rotate(-15deg);
 }
 
 .click-here.arrow-right {
-    top: -40px;
-    right: 15%;
+    top: -50px;
+    right: 10%;
     transform: rotate(15deg);
 }
 
 .hand-text {
     font-family: 'Gochi Hand', cursive;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #fff;
     margin-bottom: -5px;
     white-space: nowrap;
@@ -3621,8 +3622,8 @@ body::after {
 
 .arrow-svg {
     transform: rotate(90deg);
-    width: 80px;
-    height: 50px;
+    width: 90px;
+    height: 55px;
 }
 
 @media (max-width: 1024px) {
@@ -3634,9 +3635,9 @@ body::after {
     
     .youtube-grid {
         grid-template-columns: 1fr;
-        max-width: 450px;
+        max-width: 100%;
         margin: 0 auto;
-        gap: 4rem;
+        gap: 5rem;
     }
 
     .click-here {
