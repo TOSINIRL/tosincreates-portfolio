@@ -3439,3 +3439,173 @@ body::after {
         text-align: center;
     }
 }
+
+/* --- New Community Hub Sections (Added 2026-04-28) --- */
+
+.discord-hub {
+    background: #fdfdfd;
+    color: #111;
+    padding: 8rem 10%;
+    position: relative;
+    z-index: 10;
+}
+
+.youtube-hub {
+    background: #000;
+    color: #fff;
+    padding: 8rem 10%;
+    position: relative;
+    z-index: 10;
+}
+
+.hub-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.hub-text {
+    flex: 1;
+}
+
+.hub-text h2 {
+    font-family: var(--font-heading, 'Inter', sans-serif);
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.hub-text p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: inherit;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* Discord Hub Specifics */
+.discord-hub .hub-action {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.discord-join-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #111;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.discord-join-btn:hover {
+    transform: scale(1.05);
+}
+
+.discord-join-btn span {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.discord-btn-logo {
+    width: 280px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(88, 101, 242, 0.2));
+}
+
+/* YouTube Hub Specifics */
+.youtube-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-mockup {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.thumb-img {
+    width: 100%;
+    display: block;
+    transition: 0.5s;
+}
+
+.video-mockup:hover .thumb-img {
+    transform: scale(1.05);
+}
+
+.play-btn-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 0, 0, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255,0,0,0.4);
+    pointer-events: none;
+}
+
+.play-icon {
+    font-size: 2rem;
+}
+
+.click-here {
+    position: absolute;
+    top: -60px;
+    left: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-15deg);
+}
+
+.hand-text {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: -10px;
+}
+
+.arrow-svg {
+    transform: scaleX(-1) rotate(20deg);
+}
+
+@media (max-width: 1024px) {
+    .hub-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+    }
+    
+    .hub-text p {
+        margin: 0 auto;
+    }
+    
+    .click-here {
+        display: none;
+    }
+
+    .hub-text h2 {
+        font-size: 3.5rem;
+    }
+}

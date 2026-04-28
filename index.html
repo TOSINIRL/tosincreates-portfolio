@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="assets/images/tc_media_hub_logo.png?v=23">
     <link rel="shortcut icon" href="assets/images/tc_media_hub_logo.png?v=23">
     <link rel="apple-touch-icon" href="assets/images/tc_media_hub_logo.png?v=24">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&family=Gochi+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=206.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -296,102 +296,45 @@
         <!-- Metrics Removed -->
 
 
-        <!-- YouTube Content Hub -->
-        <section class="hub" id="socials">
-            <div class="container">
-
-                <!-- Channel Header -->
-                <div class="yt-channel-header">
-                    <div class="yt-channel-banner">
-                        <div class="yt-banner-specs">
-                            <div class="spec-item"><span class="spec-dot"></span> 4K_UPLINK</div>
-                            <div class="spec-item"><span class="spec-dot"></span> HDR_ENABLED</div>
-                            <div class="spec-item"><span class="spec-dot"></span> 60FPS_SYNC</div>
-                        </div>
-                    </div>
-                    <div class="yt-channel-meta">
-                        <div class="yt-channel-avatar-wrap">
-                            <img src="https://yt3.googleusercontent.com/zx10fuWqPwDa7uQhcf-ajlOKGNH3bXg_g7iide2NKQWUYK5bnap0Apryln_4ciFgs-VlFRwd3Q=s900-c-k-c0x00ffffff-no-rj" alt="TosinIRL" class="yt-channel-avatar">
-                        </div>
-                        <div class="yt-channel-info">
-                            <h2 class="yt-channel-name">TosinIRL <i class="fas fa-check-circle yt-verify"></i></h2>
-                            <p class="yt-channel-handle">@tosinirl · Vlogs, Video Commentary & Lifestyle</p>
-                            
-                            <!-- Live Stats Row -->
-                            <div class="yt-channel-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value"><span class="pulse-dot"></span><span id="sub-count">1.59K</span></span>
-                                    <span class="stat-label">Subscribers</span>
-                                </div>
-                                <div class="stat-divider"></div>
-                                <a href="https://discord.com/invite/vW7DnNsf74" target="_blank" class="stat-item" style="text-decoration: none; cursor: pointer;">
-                                    <span class="stat-value"><span class="pulse-dot"></span><span id="discord-count">5</span></span>
-                                    <span class="stat-label">Discord Members</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="yt-channel-actions">
-                            <a href="https://youtube.com/@tosinirl?sub_confirmation=1" class="btn-yt-subscribe" target="_blank" rel="noopener">
-                                <i class="fab fa-youtube"></i> Subscribe
-                            </a>
-                            <a href="https://discord.com/invite/vW7DnNsf74" class="btn-discord" target="_blank" rel="noopener">
-                                <i class="fab fa-discord"></i> Discord
-                            </a>
-                        </div>
-                    </div>
+        <!-- New Community Hub Sections -->
+        <section id="discord-hub" class="discord-hub">
+            <div class="hub-container">
+                <div class="hub-text">
+                    <h2>Discord</h2>
+                    <p>On my Discord, you'll find valuable free assets for editing, tutorial recommendations, and other DaVinci creators you can learn from. It's a growing community with a great overview of resources, where everyone supports each other.</p>
                 </div>
-
-                <!-- Channel Tabs -->
-                <div class="yt-tabs">
-                    <div class="yt-tab active" data-tab="videos">Videos</div>
+                <div class="hub-action">
+                    <a href="https://discord.com/invite/vW7DnNsf74" class="discord-join-btn" target="_blank">
+                        <span>Join my Discord!</span>
+                        <img src="assets/images/discord-logo.png" alt="Discord Logo" class="discord-btn-logo">
+                    </a>
                 </div>
-
-                <!-- Featured Previews Grid -->
-                <div class="yt-tab-content">
-                    <div class="yt-main-content">
-                        <div class="video-preview-grid">
-                            <!-- Monkey App -->
-                            <div class="video-card featured-full featured-monkey" data-video-id="UNarPhkqDD0">
-                                <div class="thumbnail">
-                                    <div class="volume-control"><i class="fas fa-volume-up"></i><div class="dot"></div></div>
-                                    <img src="https://i.ytimg.com/vi/UNarPhkqDD0/hqdefault.jpg" class="thumbnail-img" alt="Monkey App Preview">
-                                    <div id="monkey-player" class="yt-iframe"></div>
-                                    <div class="featured-play-hint"><i class="fas fa-play"></i></div>
-                                </div>
-                                <div class="video-content featured-content">
-                                    <span class="featured-label text-accent">LATEST DROP</span>
-                                    <h3 class="video-title">HOW TO RIZZ UP EVERY BADDIE 😈 (MONKEY APP)</h3>
-                                    <div class="featured-actions">
-                                        <a href="https://www.youtube.com/watch?v=UNarPhkqDD0" target="_blank" class="btn btn-primary">
-                                            <i class="fas fa-play"></i> WATCH NOW
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Shang Chi -->
-                            <div class="video-card featured-full featured-shangchi" data-video-id="1UVkZgmm4Gk">
-                                <div class="thumbnail">
-                                    <div class="volume-control"><i class="fas fa-volume-up"></i><div class="dot"></div></div>
-                                    <img src="https://i.ytimg.com/vi/1UVkZgmm4Gk/hqdefault.jpg" class="thumbnail-img" alt="Video Preview">
-                                    <div id="shangchi-player" class="yt-iframe"></div>
-                                    <div class="featured-play-hint"><i class="fas fa-play"></i></div>
-                                </div>
-                                <div class="video-content featured-content">
-                                    <span class="featured-label text-accent">TRENDING NOW</span>
-                                    <h3 class="video-title">WHEN SHANG CHI WAS PUTTING BTA ON HIS POPS</h3>
-                                    <div class="featured-actions">
-                                        <a href="https://www.youtube.com/watch?v=1UVkZgmm4Gk" target="_blank" class="btn btn-primary">
-                                            <i class="fas fa-play"></i> WATCH NOW
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+        </section>
+
+        <section id="youtube-hub" class="youtube-hub">
+            <div class="hub-container">
+                <div class="hub-text">
+                    <h2>YouTube</h2>
+                    <p>On my YouTube channel, you can find all kinds of videos about DaVinci Resolve. My main focus is on TikTok edits, motion graphics, and plugin showcases.</p>
+                </div>
+                <div class="youtube-visual">
+                    <div class="click-here">
+                        <span class="hand-text">click here</span>
+                        <svg class="arrow-svg" width="100" height="60" viewBox="0 0 100 60">
+                            <path d="M10,10 Q40,50 90,20" stroke="#5865F2" stroke-width="3" fill="none" />
+                            <path d="M85,15 L95,20 L90,30" stroke="#5865F2" stroke-width="3" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="video-mockup">
+                        <img src="assets/images/youtube-thumb.png" alt="YouTube Video Thumbnail" class="thumb-img">
+                        <div class="play-btn-overlay">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Contact Console: The Grand Finale -->
         <section class="contact" id="contact">
             <div class="container">
