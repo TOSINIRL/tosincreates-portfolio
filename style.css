@@ -3470,11 +3470,12 @@ body::after {
 }
 
 .youtube-hub {
-    background: #000;
-    color: #fff;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 8rem 10%;
     position: relative;
     z-index: 10;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .hub-container {
@@ -3596,14 +3597,20 @@ body.light-theme .discord-logo-light {
 .video-mockup {
     position: relative;
     aspect-ratio: 16 / 9;
-    border-radius: 24px; /* Matches the rounded reference */
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 40px var(--shadow-color);
     width: 100%;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--border-color);
     display: block;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: #111;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    background: var(--card-bg);
+}
+
+.video-mockup:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(255, 0, 0, 0.3);
+    border-color: rgba(255, 0, 0, 0.5);
 }
 
 .video-mockup:hover {
@@ -3660,6 +3667,14 @@ body.light-theme .discord-logo-light {
     align-items: center;
     z-index: 5;
     pointer-events: none;
+    font-family: 'Comic Sans MS', cursive;
+    color: var(--text-primary);
+    animation: bounceText 2s ease-in-out infinite;
+}
+
+@keyframes bounceText {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
 }
 
 .click-here.arrow-left {
