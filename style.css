@@ -3535,7 +3535,33 @@ body::after {
 .discord-btn-logo {
     width: 280px;
     height: auto;
+    border-radius: 32px;
     filter: drop-shadow(0 20px 40px rgba(88, 101, 242, 0.2));
+    transition: opacity 0.3s ease;
+}
+
+.discord-logo-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.discord-logo-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.light-theme .discord-logo-dark {
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.light-theme .discord-logo-light {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 /* YouTube Hub Specifics */
