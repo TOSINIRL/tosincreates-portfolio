@@ -3692,9 +3692,10 @@ body.light-theme .discord-logo-light {
 .hand-text {
     font-family: 'Gochi Hand', cursive;
     font-size: 2rem;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: -5px;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .arrow-svg {
