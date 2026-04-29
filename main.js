@@ -559,12 +559,14 @@
                 });
                 
                 const icon = pill.querySelector('i');
-                gsap.to(icon, {
-                    x: x * 0.5,
-                    y: y * 0.5,
-                    duration: 0.4,
-                    ease: "power2.out"
-                });
+                if (icon) {
+                    gsap.to(icon, {
+                        x: x * 0.5,
+                        y: y * 0.5,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                }
             });
 
             pill.addEventListener('mouseleave', () => {
@@ -575,14 +577,48 @@
                     ease: "elastic.out(1, 0.3)"
                 });
                 const icon = pill.querySelector('i');
-                gsap.to(icon, {
-                    x: 0,
-                    y: 0,
-                    duration: 0.6,
+                if (icon) {
+                    gsap.to(icon, {
+                        x: 0,
+                        y: 0,
+                        duration: 0.6,
+                        ease: "elastic.out(1, 0.3)"
+                    });
+                }
+            });
+        });
+
+        // 3D Tilt for Discord Button
+        const discordBtn = document.querySelector('.discord-join-btn');
+        if (discordBtn) {
+            discordBtn.addEventListener('mousemove', (e) => {
+                const rect = discordBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                gsap.to(discordBtn, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    transformPerspective: 1000
+                });
+            });
+
+            discordBtn.addEventListener('mouseleave', () => {
+                gsap.to(discordBtn, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    duration: 0.8,
                     ease: "elastic.out(1, 0.3)"
                 });
             });
-        });
+        }
     };
 
     // 0. SYSTEM CLOCK & GLOBAL NODES

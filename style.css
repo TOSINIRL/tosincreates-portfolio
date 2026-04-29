@@ -3537,13 +3537,30 @@ body::after {
     height: auto;
     border-radius: 32px;
     filter: drop-shadow(0 20px 40px rgba(88, 101, 242, 0.2));
-    transition: opacity 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .discord-logo-wrap {
     position: relative;
     width: 280px;
     height: 280px;
+    animation: discordFloat 4s ease-in-out infinite;
+}
+
+/* Premium Floating Animation */
+@keyframes discordFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Glow Pulse for Dark Mode */
+.discord-logo-dark {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 10px 20px rgba(88, 101, 242, 0.3)); }
+    50% { filter: drop-shadow(0 25px 50px rgba(88, 101, 242, 0.6)); }
 }
 
 .discord-logo-light {
