@@ -62,13 +62,18 @@
     background: rgba(0, 0, 0, 0.3) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     height: 180px;
+    padding: 15px !important; /* Reduced padding to prevent distortion */
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
 }
 
 .footer-terminal .terminal-body {
-    padding: 15px;
+    padding: 10px 15px;
     font-size: 0.8rem;
     height: calc(100% - 45px);
     overflow: hidden;
+    width: 100%;
 }
 
 .log-line {
