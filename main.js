@@ -635,6 +635,22 @@
     }
 
 
+    // 6. Intersection Observer for Reveal Animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
     // Ensure GSAP plugins are ready and clocks are starting
     updateClock();
 })();

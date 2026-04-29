@@ -3447,12 +3447,26 @@ body::after {
 
 /* --- New Community Hub Sections (Added 2026-04-28) --- */
 
+/* Community Hub Sections */
 .discord-hub {
-    background: #fdfdfd;
-    color: #111;
-    padding: 8rem 10%;
+    background: var(--bg-primary);
+    padding: 120px 0;
+    color: var(--text-primary);
     position: relative;
     z-index: 10;
+    overflow: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .youtube-hub {
@@ -3504,7 +3518,7 @@ body::after {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #111;
+    color: var(--text-primary);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
