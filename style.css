@@ -518,6 +518,39 @@ body::before {
     color: var(--accent-red);
 }
 
+.social-header-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-icon-circle {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.social-icon-circle:hover {
+    background: var(--accent-red);
+    color: #fff;
+    border-color: var(--accent-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 51, 51, 0.4);
+}
+
+.social-icon-circle i {
+    font-size: 1.1rem;
+}
+
 /* Hero Social Quick Links */
 .hero-social-quick {
     display: flex;
@@ -1759,6 +1792,7 @@ a {
 .social-pill.dc { --platform-color: #5865f2; --platform-rgb: 88, 101, 242; }
 .social-pill.tw { --platform-color: #9146ff; --platform-rgb: 145, 70, 255; }
 .social-pill.li { --platform-color: #0077b5; --platform-rgb: 0, 119, 181; }
+.social-pill.gh { --platform-color: #f0f6fc; --platform-rgb: 240, 246, 252; }
 
 .social-pill:hover i {
     color: var(--platform-color);
