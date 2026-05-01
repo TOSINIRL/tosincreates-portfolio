@@ -252,21 +252,19 @@
     // 2. Social Stats Real-Time Logic
     const initSocialStats = () => {
         const subDisplay = document.getElementById('sub-count');
-        const discordDisplay = document.getElementById('discord-count');
         
-        if (!subDisplay || !discordDisplay) return;
+        if (!subDisplay) return;
 
         // Configuration
         const CONFIG = {
-            discordInvite: 'vW7DnNsf74',
+
             youtubeChannelId: 'UCck1kagNTkAlriBIRE8NPog',
             youtubeApiKey: 'AIzaSyDI7ia--llieRsL_TaPVw5p0A1-B9UdHrE',
             refreshInterval: 60000 // 1 minute
         };
 
         const state = {
-            subs: 1590, // Fallback
-            discord: 5   // Fallback
+            subs: 1590 // Fallback
         };
 
         const animateValue = (el, start, end, suffix = "") => {
@@ -302,16 +300,7 @@
 
         const fetchStats = async () => {
             try {
-                // 1. Fetch Discord Data (Keyless)
-                const discordRes = await fetch(`https://discord.com/api/v9/invites/${CONFIG.discordInvite}?with_counts=true`);
-                const discordData = await discordRes.json();
-                if (discordData.approximate_member_count !== undefined) {
-                    const newDiscord = discordData.approximate_member_count;
-                    if (newDiscord !== state.discord) {
-                        animateValue(discordDisplay, state.discord, newDiscord);
-                        state.discord = newDiscord;
-                    }
-                }
+
 
                 // 2. Fetch YouTube Data (Requires Key)
                 if (CONFIG.youtubeApiKey) {
@@ -338,7 +327,6 @@
 
         // Entry Animation
         animateValue(subDisplay, 0, state.subs, "K");
-        animateValue(discordDisplay, 0, state.discord);
 
         // Auto-refresh poll
         setInterval(fetchStats, CONFIG.refreshInterval);
@@ -588,37 +576,7 @@
             });
         });
 
-        // 3D Tilt for Discord Button
-        const discordBtn = document.querySelector('.discord-join-btn');
-        if (discordBtn) {
-            discordBtn.addEventListener('mousemove', (e) => {
-                const rect = discordBtn.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-                
-                gsap.to(discordBtn, {
-                    rotateX: rotateX,
-                    rotateY: rotateY,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    transformPerspective: 1000
-                });
-            });
 
-            discordBtn.addEventListener('mouseleave', () => {
-                gsap.to(discordBtn, {
-                    rotateX: 0,
-                    rotateY: 0,
-                    duration: 0.8,
-                    ease: "elastic.out(1, 0.3)"
-                });
-            });
-        }
     };
 
     // 0. SYSTEM CLOCK & GLOBAL NODES

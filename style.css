@@ -518,6 +518,39 @@ body::before {
     color: var(--accent-red);
 }
 
+.social-header-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-icon-circle {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.social-icon-circle:hover {
+    background: var(--accent-red);
+    color: #fff;
+    border-color: var(--accent-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 51, 51, 0.4);
+}
+
+.social-icon-circle i {
+    font-size: 1.1rem;
+}
+
 /* Hero Social Quick Links */
 .hero-social-quick {
     display: flex;
@@ -1756,9 +1789,10 @@ a {
 /* Platform Colors */
 .social-pill.yt { --platform-color: #ff0000; --platform-rgb: 255, 0, 0; }
 .social-pill.ig { --platform-color: #e4405f; --platform-rgb: 228, 64, 95; }
-.social-pill.dc { --platform-color: #5865f2; --platform-rgb: 88, 101, 242; }
+
 .social-pill.tw { --platform-color: #9146ff; --platform-rgb: 145, 70, 255; }
 .social-pill.li { --platform-color: #0077b5; --platform-rgb: 0, 119, 181; }
+.social-pill.gh { --platform-color: #f0f6fc; --platform-rgb: 240, 246, 252; }
 
 .social-pill:hover i {
     color: var(--platform-color);
@@ -2006,23 +2040,7 @@ a {
     background: #e62e2e;
 }
 
-.btn-discord {
-    background: #5865F2;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
 
-.btn-discord:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
-}
 
 .yt-tabs {
     display: flex;
@@ -2862,7 +2880,7 @@ body::after {
         gap: 10px;
     }
     
-    .btn-yt-subscribe, .btn-discord {
+    .btn-yt-subscribe {
         width: 100%;
         justify-content: center;
     }
@@ -3449,140 +3467,7 @@ body::after {
 
 /* --- New Community Hub Sections (Added 2026-04-28) --- */
 
-/* Community Hub Sections */
-.discord-hub {
-    background: var(--bg-primary);
-    padding: 120px 0;
-    color: var(--text-primary);
-    position: relative;
-    z-index: 10;
-    overflow: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
-}
 
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-on-scroll.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.youtube-hub {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: 8rem 10%;
-    position: relative;
-    z-index: 10;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.hub-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-}
-
-.hub-text {
-    flex: 1;
-}
-
-.hub-text h2 {
-    font-family: var(--font-heading, 'Inter', sans-serif);
-    font-size: 5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    letter-spacing: -2px;
-}
-
-.hub-text p {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: inherit;
-    opacity: 0.9;
-    max-width: 600px;
-}
-
-/* Discord Hub Specifics */
-.discord-hub .hub-action {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.discord-join-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.discord-join-btn:hover {
-    transform: scale(1.05);
-}
-
-.discord-join-btn span {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.discord-btn-logo {
-    width: 280px;
-    height: auto;
-    border-radius: 32px;
-    filter: drop-shadow(0 20px 40px rgba(88, 101, 242, 0.2));
-    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.discord-logo-wrap {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    animation: discordFloat 4s ease-in-out infinite;
-}
-
-/* Premium Floating Animation */
-@keyframes discordFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-/* Glow Pulse for Dark Mode */
-.discord-logo-dark {
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-    0%, 100% { filter: drop-shadow(0 10px 20px rgba(88, 101, 242, 0.3)); }
-    50% { filter: drop-shadow(0 25px 50px rgba(88, 101, 242, 0.6)); }
-}
-
-.discord-logo-light {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-}
-
-body.light-theme .discord-logo-dark {
-    opacity: 0;
-    pointer-events: none;
-}
-
-body.light-theme .discord-logo-light {
-    opacity: 1;
-    pointer-events: auto;
-}
 
 /* YouTube Hub Specifics */
 .youtube-grid {
