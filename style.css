@@ -3684,14 +3684,21 @@ body.light-theme .discord-logo-light {
 .youtube-grid {
     flex: 2.5;
     position: relative;
-    display: flex; /* Changed from grid to flex for better stacking of large items */
+    display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 8rem; /* Increased gap to make room for arrows */
     align-items: center;
     padding-top: 140px;
-    max-width: 1280px; /* Match requested width */
+    max-width: 1280px;
     margin: 0 auto;
     width: 100%;
+    overflow: visible !important;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
     overflow: visible !important;
 }
 
@@ -3812,28 +3819,25 @@ body.light-theme .discord-logo-light {
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
+    z-index: 15;
     pointer-events: none;
     font-family: 'Comic Sans MS', cursive;
     color: var(--text-primary);
     animation: bounceText 2s ease-in-out infinite;
+    top: -90px;
 }
 
 @keyframes bounceText {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
 }
 
 .click-here.arrow-left {
-    top: -50px;
-    left: 10%;
-    transform: rotate(-15deg);
+    left: 20px;
 }
 
 .click-here.arrow-right {
-    top: -50px;
-    right: 10%;
-    transform: rotate(15deg);
+    right: 20px;
 }
 
 .hand-text {
@@ -3846,9 +3850,9 @@ body.light-theme .discord-logo-light {
 }
 
 .arrow-svg {
-    transform: rotate(90deg);
     width: 90px;
     height: 55px;
+    filter: drop-shadow(0 0 10px var(--accent-red));
 }
 
 @media (max-width: 1024px) {
