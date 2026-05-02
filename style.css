@@ -3675,11 +3675,11 @@ body.light-theme .discord-logo-light {
     flex: 2.5;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
     align-items: start;
-    padding-top: 140px; /* Even more space for the annotations */
-    max-width: 1000px;
+    padding-top: 140px;
+    max-width: 1200px; /* Increased to allow for larger thumbnails */
     margin: 0 auto;
     overflow: visible !important;
 }
@@ -3687,11 +3687,11 @@ body.light-theme .discord-logo-light {
 .video-mockup {
     position: relative;
     aspect-ratio: 16 / 9;
-    border-radius: 12px; /* Authentic YouTube border radius */
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 380px; /* Standard YouTube thumbnail size */
+    max-width: 600px; /* Increased to match a more natural YouTube size */
     margin: 0 auto;
     display: block;
     transition: all 0.3s ease;
