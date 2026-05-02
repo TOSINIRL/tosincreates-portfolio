@@ -3524,7 +3524,7 @@ body::after {
 }
 
 .hub-container {
-    max-width: 1200px;
+    max-width: 1400px; /* Increased to accommodate 1280px previews */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -3684,12 +3684,12 @@ body.light-theme .discord-logo-light {
 .youtube-grid {
     flex: 2.5;
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr; /* Mobile first: one column */
-    gap: 2rem;
-    align-items: start;
+    display: flex; /* Changed from grid to flex for better stacking of large items */
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
     padding-top: 140px;
-    max-width: 1200px;
+    max-width: 1280px; /* Match requested width */
     margin: 0 auto;
     width: 100%;
     overflow: visible !important;
@@ -3707,9 +3707,9 @@ body.light-theme .discord-logo-light {
     aspect-ratio: 16 / 9;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* Stronger shadow for larger size */
     width: 100%;
-    max-width: 600px; /* Increased to match a more natural YouTube size */
+    max-width: 1280px; /* Requested size */
     margin: 0 auto;
     display: block;
     transition: all 0.3s ease;
