@@ -3675,11 +3675,11 @@ body.light-theme .discord-logo-light {
     flex: 2.5;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reduced min-width to prevent overflow on mobile */
     gap: 3rem;
     align-items: start;
     padding-top: 140px;
-    max-width: 1200px; /* Increased to allow for larger thumbnails */
+    max-width: 1200px;
     margin: 0 auto;
     overflow: visible !important;
 }
@@ -3838,6 +3838,7 @@ body.light-theme .discord-logo-light {
         flex-direction: column;
         text-align: center;
         gap: 4rem;
+        padding: 0 20px; /* Precise pixel padding for mobile */
     }
     
     .youtube-grid {
@@ -3846,17 +3847,17 @@ body.light-theme .discord-logo-light {
         max-width: 100%;
         margin: 0 auto;
         gap: 3rem;
-        padding-left: 0;
-        padding-right: 0;
+        padding-top: 100px;
+        overflow: visible !important;
     }
 
     .youtube-hub {
-        padding: 6rem 5%; /* Reduced side padding on mobile */
+        padding: 6rem 0; /* Remove side padding to let grid handle it */
+        overflow: visible !important;
     }
 
-    .hub-container {
-        padding: 0;
-        width: 100%;
+    .video-mockup {
+        max-width: 100%; /* Ensure it doesn't exceed screen width */
     }
 
     .click-here {
