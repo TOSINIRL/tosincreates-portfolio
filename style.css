@@ -3685,13 +3685,21 @@ body.light-theme .discord-logo-light {
     flex: 2.5;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reduced min-width to prevent overflow on mobile */
-    gap: 3rem;
+    grid-template-columns: 1fr; /* Mobile first: one column */
+    gap: 2rem;
     align-items: start;
     padding-top: 140px;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
     overflow: visible !important;
+}
+
+@media (min-width: 768px) {
+    .youtube-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
 }
 
 .video-mockup {
