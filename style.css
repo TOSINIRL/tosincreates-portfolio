@@ -3673,11 +3673,11 @@ body.light-theme .discord-logo-light {
     flex: 2.5;
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     align-items: start;
     padding-top: 60px;
-    max-width: 1000px; /* Increased width */
+    max-width: 800px; /* Reduced width for more compact look */
 }
 
 .video-mockup {
@@ -3687,7 +3687,8 @@ body.light-theme .discord-logo-light {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     width: 100%;
-    border: none;
+    max-width: 380px; /* Standard YouTube thumbnail size */
+    margin: 0 auto;
     display: block;
     transition: all 0.3s ease;
     background: #000;
