@@ -3842,9 +3842,21 @@ body.light-theme .discord-logo-light {
     
     .youtube-grid {
         grid-template-columns: 1fr;
+        width: 100%;
         max-width: 100%;
         margin: 0 auto;
-        gap: 5rem;
+        gap: 3rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .youtube-hub {
+        padding: 6rem 5%; /* Reduced side padding on mobile */
+    }
+
+    .hub-container {
+        padding: 0;
+        width: 100%;
     }
 
     .click-here {
