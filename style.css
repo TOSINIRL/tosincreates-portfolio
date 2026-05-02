@@ -3674,10 +3674,11 @@ body.light-theme .discord-logo-light {
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 2.5rem; /* Restored gap for better spacing */
     align-items: start;
-    padding-top: 60px;
-    max-width: 800px; /* Reduced width for more compact look */
+    padding-top: 120px; /* Increased to prevent clipping of "click here" text/arrows */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .video-mockup {
