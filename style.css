@@ -3512,6 +3512,7 @@ body::after {
     position: relative;
     z-index: 10;
     transition: background 0.3s ease, color 0.3s ease;
+    overflow: visible !important;
 }
 
 .hub-container {
@@ -3521,6 +3522,7 @@ body::after {
     align-items: center;
     justify-content: space-between;
     gap: 4rem;
+    overflow: visible !important;
 }
 
 .hub-text {
@@ -3674,11 +3676,12 @@ body.light-theme .discord-logo-light {
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem; /* Restored gap for better spacing */
+    gap: 3rem;
     align-items: start;
-    padding-top: 120px; /* Increased to prevent clipping of "click here" text/arrows */
-    max-width: 900px;
+    padding-top: 140px; /* Even more space for the annotations */
+    max-width: 1000px;
     margin: 0 auto;
+    overflow: visible !important;
 }
 
 .video-mockup {
