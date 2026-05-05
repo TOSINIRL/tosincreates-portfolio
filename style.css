@@ -3890,3 +3890,262 @@ body.light-theme .discord-logo-light {
         font-size: 3.5rem;
     }
 }
+
+/* --- Premium Project Grid & Contact Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.dashboard-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-card:hover {
+    transform: perspective(1000px) rotateX(4deg) rotateY(4deg) translateY(-10px);
+    border-color: var(--accent-red);
+    box-shadow: 0 20px 40px rgba(255, 51, 51, 0.15);
+}
+
+.card-image-wrapper {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.project-img {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashboard-card:hover .project-img {
+    transform: scale(1.1) translateZ(50px);
+}
+
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.card-badge.live { background: rgba(0, 255, 100, 0.1); color: #00ff64; }
+.card-badge.new { background: rgba(255, 51, 51, 0.1); color: #ff3333; }
+.card-badge.deployed { background: rgba(0, 150, 255, 0.1); color: #0096ff; }
+.card-badge.active { background: rgba(255, 160, 0, 0.1); color: #ffa000; }
+
+.card-info {
+    padding: 30px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 51, 51, 0.02));
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.card-info h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.card-btn {
+    margin-top: auto;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.dashboard-card:hover .card-btn {
+    gap: 15px;
+}
+
+/* --- Contact Section --- */
+.contact {
+    padding: 8rem 0;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    padding: 80px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 51, 51, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-heading {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.contact-desc {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.contact-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.social-pills {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.social-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--platform-color, var(--accent-red));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.social-pill:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.social-pill:hover {
+    border-color: var(--platform-color, var(--accent-red));
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(var(--platform-rgb, 255, 51, 51), 0.2);
+    color: #fff;
+}
+
+.social-pill i {
+    font-size: 1.2rem;
+    transition: transform 0.4s ease;
+}
+
+.social-pill:hover i {
+    transform: rotate(12deg) scale(1.2);
+}
+
+.social-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Platform Colors */
+.social-pill.yt { --platform-color: #ff0000; --platform-rgb: 255, 0, 0; }
+.social-pill.ig { --platform-color: #e4405f; --platform-rgb: 228, 64, 95; }
+.social-pill.dc { --platform-color: #5865f2; --platform-rgb: 88, 101, 242; }
+.social-pill.tw { --platform-color: #9146ff; --platform-rgb: 145, 70, 255; }
+.social-pill.li { --platform-color: #0077b5; --platform-rgb: 0, 119, 181; }
+.social-pill.gh { --platform-color: #f0f6fc; --platform-rgb: 240, 246, 252; }
+
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 40px 20px;
+    }
+    .social-pill {
+        width: 100%;
+        justify-content: center;
+    }
+}
